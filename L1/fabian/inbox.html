@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRCE Student Mail - Fabian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .email-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="text-white overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl floating"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl floating" style="animation-delay: -2s;"></div>
+        <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl floating" style="animation-delay: -4s;"></div>
+    </div>
+
+    <div class="relative z-10 h-screen flex">
+        <!-- Sidebar -->
+        <div class="w-80 glass m-4 rounded-2xl p-6 flex flex-col">
+            <!-- Header -->
+            <div class="mb-8">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    CRCE Mail
+                </h1>
+                <p class="text-gray-400 text-sm mt-1">Student Portal</p>
+            </div>
+
+            <!-- Compose Button -->
+            <button class="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-4 rounded-xl mb-6 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <i data-lucide="plus" class="inline w-5 h-5 mr-2"></i>
+                Compose
+            </button>
+
+            <!-- Navigation -->
+            <nav class="flex-1 space-y-2">
+                <a href="#" class="flex items-center p-3 rounded-xl glass hover:bg-white/20 transition-all duration-300 email-item">
+                    <i data-lucide="inbox" class="w-5 h-5 mr-3 text-blue-400"></i>
+                    <span class="font-medium">Inbox</span>
+                    <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">12</span>
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-xl glass hover:bg-white/20 transition-all duration-300 email-item">
+                    <i data-lucide="star" class="w-5 h-5 mr-3 text-yellow-400"></i>
+                    <span class="font-medium">Starred</span>
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-xl glass hover:bg-white/20 transition-all duration-300 email-item">
+                    <i data-lucide="send" class="w-5 h-5 mr-3 text-green-400"></i>
+                    <span class="font-medium">Sent</span>
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-xl glass hover:bg-white/20 transition-all duration-300 email-item">
+                    <i data-lucide="archive" class="w-5 h-5 mr-3 text-purple-400"></i>
+                    <span class="font-medium">Archive</span>
+                </a>
+                <a href="#" class="flex items-center p-3 rounded-xl glass hover:bg-white/20 transition-all duration-300 email-item">
+                    <i data-lucide="trash" class="w-5 h-5 mr-3 text-red-400"></i>
+                    <span class="font-medium">Trash</span>
+                </a>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="mt-6 p-4 glass rounded-xl">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center mr-3">
+                        <span class="text-white font-bold">F</span>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Fabian</p>
+                        <p class="text-xs text-gray-400">fabian@crce.edu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 m-4 ml-0">
+            <!-- Top Bar -->
+            <div class="glass rounded-2xl p-6 mb-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-2xl font-bold">Inbox</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search emails..." class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
+                            <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        </div>
+                        <button class="p-2 glass rounded-lg hover:bg-white/20 transition-all duration-300">
+                            <i data-lucide="settings" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email List -->
+            <div class="glass rounded-2xl p-6 h-full overflow-hidden">
+                <div class="space-y-4 h-full overflow-y-auto pr-4">
+                    <!-- Email Items -->
+                    <div class="email-item p-4 rounded-xl glass cursor-pointer transition-all duration-300">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold text-sm">P</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="font-semibold text-white">Placement Cell</span>
+                                        <span class="text-xs text-gray-400">2 hours ago</span>
+                                    </div>
+                                    <p class="text-sm font-medium text-gray-300 mb-1">Upcoming Campus Recruitment Drive</p>
+                                    <p class="text-xs text-gray-400 truncate">Dear students, we are excited to announce the upcoming recruitment drive...</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="star" class="w-4 h-4 text-gray-400 hover:text-yellow-400 cursor-pointer"></i>
+                                <i data-lucide="more-vertical" class="w-4 h-4 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-item p-4 rounded-xl glass cursor-pointer transition-all duration-300">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold text-sm">A</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="font-semibold text-white">Academic Office</span>
+                                        <span class="text-xs text-gray-400">5 hours ago</span>
+                                    </div>
+                                    <p class="text-sm font-medium text-gray-300 mb-1">Semester Exam Schedule Released</p>
+                                    <p class="text-xs text-gray-400 truncate">The examination schedule for the current semester has been finalized...</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 cursor-pointer"></i>
+                                <i data-lucide="more-vertical" class="w-4 h-4 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-item p-4 rounded-xl glass cursor-pointer transition-all duration-300">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold text-sm">C</span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="font-semibold text-white">Cultural Committee</span>
+                                        <span class="text-xs text-gray-400">1 day ago</span>
+                                    </div>
+                                    <p class="text-sm font-medium text-gray-300 mb-1">Annual Cultural Fest Registration Open</p>
+                                    <p class="text-xs text-gray-400 truncate">Register now for various events and competitions. Don't miss out...</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="star" class="w-4 h-4 text-gray-400 hover:text-yellow-400 cursor-pointer"></i>
+                                <i data-lucide="more-vertical" class="w-4 h-4 text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More email items can be added here -->
+                    <div class="text-center py-8">
+                        <div class="animate-pulse-slow">
+                            <i data-lucide="mail" class="w-12 h-12 text-gray-500 mx-auto mb-4"></i>
+                            <p class="text-gray-400">No more emails in your inbox</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Add some interactive effects
+        document.querySelectorAll('.email-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // In a real app, this would open the email
+                item.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    item.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

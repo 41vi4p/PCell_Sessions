@@ -1,0 +1,293 @@
+/* CRCE Student Information Portal - Styles */
+
+:root {
+    --primary-color: #CC9999;
+    --secondary-color: #FFB997;
+    --header-bg: #9F9F9F;
+    --table-header-bg: #00BBBB;
+    --accent-color: #E4E4E4;
+    --error-color: #CC0000;
+    --light-gray: #C0C0C0;
+    --form-bg: #dbdbdb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--form-bg);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* General Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #333;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+/* Form Styling */
+form {
+    padding: 1rem;
+}
+
+/* Tables */
+table {
+    border: 5px solid #999;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: var(--table-header-bg);
+    color: white;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+    background-color: var(--table-header-bg);
+    color: white;
+}
+
+td {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Header Row Styles */
+.header-row {
+    background-color: var(--primary-color) !important;
+    color: white;
+    font-weight: bold;
+}
+
+.header-row td {
+    background-color: var(--primary-color) !important;
+    color: white;
+}
+
+.subheader-row {
+    background-color: var(--secondary-color) !important;
+}
+
+.subheader-row td {
+    background-color: var(--secondary-color) !important;
+}
+
+.navigation-row {
+    background-color: var(--header-bg) !important;
+}
+
+.navigation-row td {
+    background-color: var(--header-bg) !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.section-header {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-header td {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+}
+
+.profile-photo {
+    background-color: var(--accent-color) !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.profile-photo img {
+    border: 2px solid #666;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Input Elements */
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+input[type="submit"]:active {
+    background-color: #222;
+}
+
+/* Cell Styles */
+.label-cell {
+    font-weight: bold;
+    background-color: #f5f5f5;
+    width: 33%;
+}
+
+.data-cell {
+    background-color: white;
+}
+
+/* Specific Rows */
+.father-details-header {
+    background-color: var(--table-header-bg) !important;
+}
+
+.father-details-header td {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mother-details-header {
+    background-color: var(--table-header-bg) !important;
+}
+
+.mother-details-header td {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.guardian-details-header {
+    background-color: var(--table-header-bg) !important;
+}
+
+.guardian-details-header td {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reference-header {
+    background-color: var(--table-header-bg) !important;
+}
+
+.reference-header td {
+    background-color: var(--table-header-bg) !important;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Academic Status Table Headers */
+.academic-status-table-header {
+    background-color: var(--light-gray) !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.academic-status-table-header td {
+    background-color: var(--light-gray) !important;
+}
+
+/* Address Paragraphs */
+.address-text {
+    margin: 0.25rem 0;
+    font-size: 12px;
+}
+
+/* Color Classes */
+.color-error {
+    color: var(--error-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    table {
+        border-width: 3px;
+        margin-bottom: 1rem;
+    }
+
+    th, td {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 12px;
+        font-size: 11px;
+        margin: 2px 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    form {
+        padding: 0.5rem;
+    }
+
+    table {
+        border-width: 2px;
+        margin-bottom: 0.75rem;
+        font-size: 11px;
+    }
+
+    th, td {
+        padding: 6px 8px;
+    }
+
+    input[type="submit"] {
+        padding: 6px 8px;
+        font-size: 10px;
+        margin: 2px 1px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    table {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+}
