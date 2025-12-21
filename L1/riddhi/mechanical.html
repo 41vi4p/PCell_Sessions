@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mechanical Engineering | FR.CRCE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <style>
+    /* ===== Animated Grid Background ===== */
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: move 40s linear infinite;
+    }
+    .dark .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    }
+    @keyframes move {
+      from { background-position: 0 0; }
+      to { background-position: 60px 60px; }
+    }
+
+    /* ===== NID Underline Glide ===== */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background-color: #2563eb;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+<!-- BACKGROUND -->
+<div class="fixed inset-0 -z-10 grid-bg"></div>
+
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex h-16 items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="font-semibold tracking-wide text-lg">
+        FR.CRCE
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-10 text-sm">
+
+        <li>
+          <a href="index.html" class="nav-link hover:text-blue-600">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="#about" class="nav-link hover:text-blue-600">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="#faculty" class="nav-link hover:text-blue-600">
+            Faculty
+          </a>
+        </li>
+
+        <li>
+          <a href="#vision" class="nav-link hover:text-blue-600">
+            Vision & Mission
+          </a>
+        </li>
+
+        <li>
+          <a href="#infra" class="nav-link hover:text-blue-600">
+            Infrastructure
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-4">
+
+        <!-- Dark / Light Toggle -->
+        <button id="themeToggle"
+          class="p-2 rounded-full border transition active:scale-95
+                 border-gray-300 dark:border-gray-600
+                 hover:bg-gray-100 dark:hover:bg-gray-700">
+
+          <!-- Moon -->
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+
+          <!-- Sun -->
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5 hidden" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <circle cx="12" cy="12" r="5" stroke-width="2"/>
+            <path stroke-width="2"
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.95 16.95l1.42 1.42
+                 M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.95 7.05l1.42-1.42"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu -->
+        <details class="md:hidden">
+          <summary class="cursor-pointer">☰</summary>
+          <ul class="absolute right-6 mt-4 bg-white dark:bg-gray-800 shadow-lg rounded-xl w-64">
+            <li><a href="#about" class="block px-6 py-3">About</a></li>
+            <li><a href="#faculty" class="block px-6 py-3">Faculty</a></li>
+            <li><a href="#vision" class="block px-6 py-3">Vision & Mission</a></li>
+            <li><a href="#infra" class="block px-6 py-3">Infrastructure</a></li>
+          </ul>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center px-6 reveal">
+  <div class="max-w-4xl">
+    <h1 class="text-5xl md:text-6xl font-light mb-6">
+      Mechanical <span class="text-blue-600">Engineering</span>
+    </h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+      Precision, production, and performance through modern engineering.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 reveal">
+  <div class="max-w-5xl mx-auto py-12 reveal">
+  <!-- About the Department -->
+  <section id="about">
+    <h2 class="text-3xl font-light mb-4">About the Department</h2>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      In 1974, the Fr. Agnels and its ancillaries were in news for making components of Aryabhata, the first satellite sent into space by India. The department has derived its legacy from the Production Engineering course which has been conducted for the past 38 years. With a legacy in Production Engineering, our Department has long been recognized for its strong postgraduate and doctoral programs in Mechanical Engineering. 
+    </p>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      In alignment with evolving industry needs and market dynamics, the Production Engineering program was closed and a new program in Mechanical Engineering was started in the academic year 2019–20.
+    </p>
+  </section>
+
+  <!-- What do we offer -->
+  <section id="offer" class="mt-8">
+    <h2 class="text-2xl font-light mb-4">What do we offer?</h2>
+    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4">
+      <li>B.Tech with Multidisciplinary Minor</li>
+      <li>B.Tech with Double Minor (Multidisciplinary & Specialization Minor)</li>
+      <li>B.Tech with Research and Multidisciplinary Minor</li>
+      <li>Ph.D (Doctorate) in Mechanical Engineering</li>
+    </ul>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      This experience has established great connections and a large presence of our alumni from production engineering background in national and multinational companies like Tesla, Larsen & Toubro, Godrej & Boyce, Siemens, Mahindra & Mahindra, Mercedes Benz, General Mills, Tata Consultancy Services, Mazgaon Dock, and Accenture, etc. In the past, students who pursued Postgraduate degrees abroad were admitted to universities of repute.
+    </p>
+  </section>
+
+  <!-- Laboratories -->
+  <section id="labs" class="mt-8">
+    <h2 class="text-2xl font-light mb-4">Laboratories & Facilities</h2>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      The department has 8 laboratories, equipped with state-of-the-art scientific instruments and systems. 3D printing machines, CNC machines, Automation with PLC, Industrial Robots, Computer workstations, CAD/CAM software for simulation and analysis, Conventional Machines, HVAC, Turbo Machinery, IC engines, and Metallurgical microscopes are a few among the hardware available for instruction.
+    </p>
+  </section>
+
+  <!-- Professional Societies -->
+  <section id="societies" class="mt-8">
+    <h2 class="text-2xl font-light mb-4">Professional Societies & Student Chapters</h2>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      Professional Societies and Student Chapters such as ASME (American Society of Mechanical Engineers), SAE (Society of Automotive Engineers), IIIExCRCE (Indian Institution of Industrial Engineering) are active within the department.
+    </p>
+  </section>
+
+  <!-- Student Activities -->
+  <section id="activities" class="mt-8">
+    <h2 class="text-2xl font-light mb-4">Student Activities</h2>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      Students of the department are enthusiastic and active members of various technical competition teams, such as Abadha, CFR, Vaayushastra, and Mavericks, that compete in numerous technical competitions at the national and international level. Over the years, our students have performed exceptionally well in national and international competitions involving ATVs, Go-Karts, Robotics, Aero, Quad-copter, Hackathons, and Idea competitions.
+    </p>
+  </section>
+
+  <!-- Instruction & Faculty -->
+  <section id="faculty-info" class="mt-8">
+    <h2 class="text-2xl font-light mb-4">Instruction & Faculty</h2>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      The department is evolving to keep up with the ever-increasing challenges in technology development. The instructional methods are designed in response to changing industry needs to make students employable. Students are encouraged to undertake internships and Project-based learning.
+    </p>
+    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+      The well-qualified faculty members of the department drive these activities through their teaching and innovative projects and research, covering numerous concentrations of Mechanical Engineering Science and its Applications in Thermal and Fluids Engineering, Design Engineering, and Manufacturing Engineering.
+    </p>
+  </section>
+</div>
+
+</section>
+
+<!-- FACULTY -->
+<section id="faculty" class="py-24 px-6 bg-white/40 dark:bg-gray-800/40 backdrop-blur reveal">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-light mb-8">Faculty Members</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Faculty Card -->
+      <div class="faculty-card p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Dr. Abhijit Tanksale</h3>
+        <div class="faculty-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
+          <p>Ph.D in Mechanical Engineering</p>
+          <p>Specialization: Thermal Systems & CAD/CAM</p>
+          <p>Experience: 10+ years in teaching and research</p>
+        </div>
+      </div>
+
+      <div class="faculty-card p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Graham Danny Koyeerath</h3>
+        <div class="faculty-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
+          <p>Ph.D in Production Engineering</p>
+          <p>Specialization: Robotics & Automation</p>
+          <p>Experience: 12+ years in industry and academics</p>
+        </div>
+      </div>
+
+      <div class="faculty-card p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Dr. Bhushan Patil</h3>
+        <div class="faculty-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
+          <p>Ph.D in Production Engineering</p>
+          <p>Specialization: Manufacturing & Materials</p>
+          <p>Experience: 18+ years teaching and research</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Interactive expand/collapse for faculty details
+    const cards = document.querySelectorAll('.faculty-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const details = card.querySelector('.faculty-details');
+
+        // Collapse others
+        cards.forEach(c => {
+          if (c !== card) {
+            c.querySelector('.faculty-details').style.maxHeight = '0';
+          }
+        });
+
+        // Toggle current card
+        if (details.style.maxHeight && details.style.maxHeight !== '0px') {
+          details.style.maxHeight = '0';
+        } else {
+          details.style.maxHeight = details.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<!-- VISION -->
+<section id="vision" class="py-24 px-6 reveal">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-light mb-4">Vision & Mission</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">
+      Building a comprehensive academic and research ecosystem for transforming young minds into qualified, innovative mechanical engineers with human values.
+    </p>
+    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 mb-4 space-y-2">
+      <li>Impart quality education through state-of-the-art facilities and effective teaching-learning processes.</li>
+      <li>Collaborate with educational institutions, industries, and professional societies.</li>
+      <li>Promote the culture of ethical research for developing self-sustainable engineers competent for entrepreneurship and higher studies.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- INFRASTRUCTURE -->
+<section id="infra" class="py-24 px-6 bg-white/40 dark:bg-gray-800/40 backdrop-blur reveal">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-light mb-8">Infrastructure & Laboratories</h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Mechanisms and Machines Laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/mechanisms_lab.jpg" alt="Mechanisms Lab" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">
+            It facilitates experimentation related to mechanics with Force Table Apparatus, Coil &amp; Belt Friction Apparatus, Friction Slide Apparatus, Simple Beam Apparatus, Collision of Elastic Bodies Apparatus, Bell Crank Lever, Friction Slide Apparatus as well as experimentation related to dynamics of machines with static &amp; dynamic balancing apparatus, Whirling Speed of shaft, Gyroscope, Governor, Cam analysis apparatus, Coriolis Component of acceleration, Piezoelectric Vibrometer and Vibration Apparatus
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">CAD/CAM Laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/cad_cam_lab.jpg" alt="CAD/CAM Lab" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">
+           It is well-equipped with state-of-art computational facilities including High-End Graphic Workstations with 3D Modeling and Analysis Softwares such as Ansys, NX11, Solidworks, Autocad, 3D Printer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Automation and Control Laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/automation_lab.jpg" alt="Automation Lab" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">
+            It includes automation and control equipments such as Festo Pneumatic and Electro-Pneumatic Trainers, PCS Trainers, Fluidsim.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Manufacturing Systems & Management / IE Laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/ie_lab.jpg" alt="IE Lab" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">
+            It facilitates analysis of industrial engineering and operations management problems with Arena Manufacturing System Analysis Software and MATLAB
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 (Placeholder) -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">Metrology and Quality Engineering laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/lab5.jpg" alt="Lab 5" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">It is equipped with high precision metrology instruments such as Vickers Hardness Tester, Profile Projector, Surface Plate, Vernier Caliper, Outside Micrometer, Inside Micrometer, Vernier Height Gauge, Dial Test Indicator, Slip Gauges, Mechanical Comparator, Monochromatic Check Light Unit, Optical Flat and Specimen, Gear Tooth Vernier, Sine Bar</p>
+        </div>
+      </div>
+
+      <!-- Card 6 (Placeholder) -->
+      <div class="infra-card relative p-6 border rounded-xl cursor-pointer transition-transform transform hover:scale-105 bg-white dark:bg-gray-900">
+        <h3 class="font-semibold text-lg mb-2">HVAC laboratory</h3>
+        <div class="infra-details max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <img src="images/lab6.jpg" alt="Lab 6" class="w-full h-48 object-cover rounded-md mb-2">
+          <p class="text-gray-700 dark:text-gray-300">It facilitates experimentation related to HVAC using cooling tower, Ice plant, open type air conditioning test rig and vapour absorption refrigeration test rig.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Interactive expand/collapse for infrastructure cards
+    const infraCards = document.querySelectorAll('.infra-card');
+    infraCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const details = card.querySelector('.infra-details');
+
+        // Collapse others
+        infraCards.forEach(c => {
+          if (c !== card) {
+            c.querySelector('.infra-details').style.maxHeight = '0';
+          }
+        });
+
+        // Toggle current card
+        if (details.style.maxHeight && details.style.maxHeight !== '0px') {
+          details.style.maxHeight = '0';
+        } else {
+          details.style.maxHeight = details.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
+  © 2025 Mechanical Engineering Department
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  /* Dark Mode Toggle */
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const moon = document.getElementById('iconMoon');
+  const sun = document.getElementById('iconSun');
+
+  toggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    moon.classList.toggle('hidden');
+    sun.classList.toggle('hidden');
+  });
+
+  /* Scroll Reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

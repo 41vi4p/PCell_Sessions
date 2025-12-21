@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Department of CSE (AI & DS) - Fr. CRCE</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ffcc00;
+      --dark-bg: #0b0f1a;
+      --light-bg: #141a2e;
+      --text-color: #eaeaea;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: var(--dark-bg); color: var(--text-color); line-height: 1.6; scroll-behavior: smooth; }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #0b0f1a, #141a2e);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .college-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.6rem; margin-bottom: 10px; }
+    .dept-name { font-size: 1.4rem; font-weight: 500; margin-bottom: 6px; }
+    .naac { font-size: 0.95rem; letter-spacing: 1px; opacity: 0.9; }
+
+    section { padding: 55px 8%; }
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--primary); }
+
+    .about p { max-width: 850px; margin: auto; text-align: center; font-size: 1rem; opacity: 0.9; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+
+    .card {
+      background: var(--light-bg);
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      cursor: pointer;
+      text-align: center;
+    }
+    .card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 18px 40px rgba(0,0,0,0.6); }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      box-shadow: inset 0 4px 0 var(--primary);
+    }
+    .card:hover::before { opacity: 1; }
+    .card h3 { margin-bottom: 10px; }
+
+    /* Dropdown style */
+    .dropdown { position: relative; display: inline-block; width: 100%; }
+    .dropdown-content {
+      display: none;
+      position: relative;
+      background: var(--dark-bg);
+      border-radius: 8px;
+      margin-top: 12px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    .dropdown-content a, .dropdown-content div {
+      color: var(--text-color);
+      padding: 10px 12px;
+      text-decoration: none;
+      display: block;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      transition: background 0.3s ease;
+    }
+    .dropdown-content a:hover, .dropdown-content div:hover { background: var(--primary); color: #000; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* Faculty card for dropdown */
+    .faculty-card {
+      background: var(--light-bg);
+      padding: 16px;
+      border-radius: 8px;
+      text-align: left;
+    }
+    .faculty-card strong { display: block; margin-bottom: 4px; }
+
+    footer { background: var(--dark-bg); color: var(--text-color); text-align: center; padding: 18px; font-size: 0.9rem; margin-top: 40px; }
+
+    @media (max-width: 768px) { .college-name { font-size: 2.1rem; } .dept-name { font-size: 1.2rem; } }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 class="college-name">Fr. Conceicao Rodrigues College of Engineering</h1>
+  <h2 class="dept-name">Department of Computer Science & Engineering (AI & Data Science)</h2>
+  <p class="naac">NAAC “A” Accredited</p>
+</header>
+
+<section class="about">
+  <div class="section-title"><h2>About the Department</h2></div>
+  <p>
+    The Department of Computer Science & Engineering (AI & Data Science) focuses on strong computing
+    fundamentals while equipping students with skills in Artificial Intelligence, Data Science,
+    and emerging technologies, emphasizing analytical thinking and practical learning.
+  </p>
+</section>
+
+<section>
+  <div class="section-title"><h2>Vision & Mission</h2></div>
+  <div class="cards">
+    <div class="card">
+      <h3>Vision</h3>
+      <p>To develop competent, innovative, and ethical engineers who contribute meaningfully to society and the global technology ecosystem.</p>
+    </div>
+    <div class="card">
+      <h3>Mission</h3>
+      <p>To provide quality technical education, promote continuous learning and research, and nurture professional excellence in emerging technologies.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><h2>Programs Offered</h2></div>
+  <div class="cards">
+    <div class="card dropdown">
+      <h3>B.Tech – CSE (AI & DS)</h3>
+      <div class="dropdown-content">
+        <a href="#">Artificial Intelligence & Machine Learning</a>
+        <a href="#">Data Science</a>
+        <a href="#">Robotics</a>
+        <a href="#">Internet of Things (IoT)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><h2>Meet the Faculty</h2></div>
+  <div class="cards">
+    <div class="card dropdown">
+      <h3>View All Faculty Members</h3>
+      <div class="dropdown-content">
+        <div class="faculty-card">
+          <strong>Dr. Jagruti Save</strong>
+          Professor & Head<br>
+          Expertise: Data Mining, Image Processing, Machine Learning, Soft Computing
+        </div>
+        <div class="faculty-card">
+          <strong>Dr. Dipali Koshti</strong>
+          Associate Professor<br>
+          Expertise: Deep Learning, Machine Learning, Mobile Computing, DBMS
+        </div>
+        <div class="faculty-card">
+          <strong>Ms. Garima Tripati</strong>
+          Assistant Professor<br>
+          Expertise: IoT, Microprocessor, Computer Organization, Image Processing
+        </div>
+        <div class="faculty-card">
+          <strong>Dr. Sarika Davare</strong>
+          Assistant Professor<br>
+          Expertise: Database Systems, Data Warehousing & Mining, Software Engineering
+        </div>
+        <div class="faculty-card">
+          <strong>Ms. Savita Borole</strong>
+          Assistant Professor<br>
+          Expertise: Data Science, NLP, Data Mining
+        </div>
+        <div class="faculty-card">
+          <strong>Ms. Shraddha Shinde</strong>
+          Assistant Professor<br>
+          Expertise: RF & Electromagnetics, Antennas, IoT Systems
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><h2>Infrastructure & Labs</h2></div>
+  <div class="cards">
+    <div class="card">
+      <h3>Computing Lab</h3>
+      <p>Well-equipped systems with modern programming tools and development environments.</p>
+    </div>
+    <div class="card">
+      <h3>Open Source Lab</h3>
+      <p>Dedicated lab supporting open-source platforms and advanced computing tools.</p>
+    </div>
+    <div class="card">
+      <h3>Network & Design Labs</h3>
+      <p>Facilities for networking, hardware integration, and system-level experimentation.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Fr. CRCE – Department of CSE (AI & Data Science) | Bandra, Mumbai</p>
+</footer>
+
+</body>
+</html>
