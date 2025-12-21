@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fr. Conceicao Rodrigues College of Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <style>
+    /* ===== Animated Grid Background ===== */
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: move 40s linear infinite;
+    }
+    .dark .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+    }
+    @keyframes move {
+      from { background-position: 0 0; }
+      to { background-position: 60px 60px; }
+    }
+
+    /* ===== NID Underline Glide ===== */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background-color: #2563eb;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+<!-- BACKGROUND -->
+<div class="fixed inset-0 -z-10 grid-bg"></div>
+
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex h-16 items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="font-semibold tracking-wide text-lg">
+        FR.CRCE
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex items-center gap-10 text-sm">
+
+        <li>
+          <a href="index.html" class="nav-link hover:text-blue-600">
+            Home
+          </a>
+        </li>
+
+        <!-- Departments -->
+        <li class="relative group">
+          <button class="nav-link hover:text-blue-600">
+            Departments
+          </button>
+
+          <ul class="absolute left-0 mt-4 w-72 bg-white dark:bg-gray-800
+                     rounded-xl shadow-xl overflow-hidden
+                     opacity-0 translate-y-3
+                     group-hover:opacity-100 group-hover:translate-y-0
+                     transition-all duration-300 ease-out">
+
+            <li>
+              <a href="mechanical.html"
+                 class="block px-6 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                Mechanical Engineering
+              </a>
+            </li>
+            <li class="px-6 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+              Computer Engineering
+            </li>
+            <li class="px-6 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+              Electronics and Computer Science Engineering
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-4">
+
+        <!-- Dark / Light Toggle -->
+        <button id="themeToggle"
+          class="p-2 rounded-full border transition active:scale-95
+                 border-gray-300 dark:border-gray-600
+                 hover:bg-gray-100 dark:hover:bg-gray-700">
+
+          <!-- Moon -->
+          <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+
+          <!-- Sun -->
+          <svg id="iconSun" xmlns="http://www.w3.org/2000/svg"
+               class="h-5 w-5 hidden" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <circle cx="12" cy="12" r="5" stroke-width="2"/>
+            <path stroke-width="2"
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.95 16.95l1.42 1.42
+                 M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.95 7.05l1.42-1.42"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu -->
+        <details class="md:hidden">
+          <summary class="cursor-pointer">☰</summary>
+          <ul class="absolute right-6 mt-4 bg-white dark:bg-gray-800 shadow-lg rounded-xl w-56">
+            <li>
+              <a href="mechanical.html" class="block px-6 py-3">
+                Mechanical Engineering
+              </a>
+            </li>
+          </ul>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center px-6 reveal">
+  <div class="max-w-4xl">
+    <h1 class="text-5xl md:text-6xl font-light leading-tight mb-6">
+      Engineering<br>
+      through <span class="text-blue-600">Design Thinking</span>
+    </h1>
+
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+      Moulding engineers who can build the nation.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION -->
+<section class="py-24 px-6 reveal">
+  <div class="max-w-5xl grid md:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-3xl font-light mb-4">Engineering</h2>
+      <p class="text-gray-600 dark:text-gray-400">
+        Structured engineering education infused with human-centered design,
+        innovation, and sustainability.
+      </p>
+    </div>
+
+    <div class="border-l-2 border-blue-600 pl-6">
+      <p class="uppercase tracking-wider text-sm text-blue-600 mb-2">
+        Philosophy
+      </p>
+      <p>
+        Minimal. Functional. Meaningful.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-sm text-gray-500 dark:text-gray-400">
+  © 2025 Fr. Conceicao Rodrigues College of Engineering
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  /* Dark Mode Toggle */
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const moon = document.getElementById('iconMoon');
+  const sun = document.getElementById('iconSun');
+
+  toggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    moon.classList.toggle('hidden');
+    sun.classList.toggle('hidden');
+  });
+
+  /* Scroll Reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
