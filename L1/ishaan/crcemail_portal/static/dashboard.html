@@ -7,7 +7,126 @@
  <title>Dashboard - CRC Email Portal</title>
  <link rel="stylesheet" href="/static/styles.css">
  <style>
-  /* small overrides */
+  body {
+   background: linear-gradient(120deg, #e0e7ff 0%, #f1f5f9 100%);
+  }
+
+  .app {
+   box-shadow: 0 4px 32px 0 rgba(60, 72, 100, 0.10);
+   border-radius: 18px;
+   background: #fff;
+   margin-top: 32px;
+   margin-bottom: 32px;
+   padding-bottom: 12px;
+  }
+
+  .topbar {
+   border-radius: 18px 18px 0 0;
+   background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
+   color: #fff;
+   box-shadow: 0 2px 8px 0 rgba(60, 72, 100, 0.08);
+   padding: 18px 24px;
+  }
+
+  .logo {
+   color: #fff;
+   font-size: 1.3rem;
+   letter-spacing: 1px;
+  }
+
+  .toolbar button {
+   background: #fff;
+   color: #2563eb;
+   border: none;
+   font-weight: 600;
+   box-shadow: 0 1px 4px 0 rgba(60, 72, 100, 0.08);
+   transition: background 0.2s, color 0.2s;
+  }
+
+  .toolbar button:hover {
+   background: #2563eb;
+   color: #fff;
+  }
+
+  .sidebar {
+   background: #f8fafc;
+   border-radius: 0 0 0 18px;
+   min-height: 500px;
+  }
+
+  .sidebar .folder {
+   font-size: 1.05rem;
+   margin-bottom: 4px;
+   transition: background 0.2s, color 0.2s;
+  }
+
+  .sidebar .folder.active {
+   background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
+   color: #fff;
+   font-weight: 700;
+  }
+
+  .main {
+   background: #f1f5f9;
+   border-radius: 0 0 18px 0;
+   box-shadow: none;
+  }
+
+  .list {
+   background: #f8fafc;
+   border-right: 1.5px solid #e0e7ef;
+   box-shadow: none;
+  }
+
+  .mail-item {
+   border-radius: 8px;
+   margin: 6px 8px;
+   box-shadow: 0 1px 4px 0 rgba(60, 72, 100, 0.04);
+   transition: background 0.2s, box-shadow 0.2s;
+  }
+
+  .mail-item.unread {
+   background: linear-gradient(90deg, #e0e7ff 0%, #f1f5f9 100%);
+   font-weight: 600;
+  }
+
+  .mail-item:hover {
+   background: #e0e7ff;
+   box-shadow: 0 2px 8px 0 rgba(60, 72, 100, 0.10);
+  }
+
+  .viewer {
+   background: #fff;
+   border-radius: 12px;
+   margin: 12px;
+   box-shadow: 0 1px 8px 0 rgba(60, 72, 100, 0.06);
+   min-height: 300px;
+  }
+
+  .viewer h2 {
+   color: #2563eb;
+   margin-bottom: 8px;
+  }
+
+  .muted-btn {
+   background: #e0e7ff;
+   color: #2563eb;
+   border: none;
+   font-weight: 600;
+   margin-left: 8px;
+   transition: background 0.2s, color 0.2s;
+  }
+
+  .muted-btn:hover {
+   background: #2563eb;
+   color: #fff;
+  }
+
+  .footer-note {
+   color: #64748b;
+   font-size: 0.95rem;
+   margin-top: 24px;
+  }
  </style>
 </head>
 
