@@ -1,0 +1,36 @@
+{
+ "10981": [
+  {
+   "id": "1",
+   "sender": "CRCE Registrar",
+   "subject": "Welcome to 10981.crce@edu.in",
+   "timestamp": "9:00 AM",
+   "body": "<h1>Welcome</h1><p>This is your official inbox.</p><img src='https://via.placeholder.com/350x150?text=Official+Notice' style='width:100%'>"
+  },
+  {
+   "id": "2",
+   "sender": "Lab Instructor",
+   "subject": "Python Tutorial Video",
+   "timestamp": "Yesterday",
+   "body": "<p>Watch this tutorial:</p><iframe width='100%' height='200' src='https://www.youtube.com/embed/dQw4w9WgXcQ' frameborder='0' allowfullscreen></iframe>"
+  }
+ ],
+ "10982": [
+  {
+   "id": "3",
+   "sender": "Admin",
+   "subject": "Hostel Guidelines",
+   "timestamp": "Oct 24",
+   "body": "<b>Read carefully:</b><br>1. No noise after 10PM.<br><img src='https://via.placeholder.com/300' >"
+  }
+ ],
+ "10983": [
+  {
+   "id": "4",
+   "sender": "Placement Cell",
+   "subject": "Interview Prep",
+   "timestamp": "Oct 23",
+   "body": "<h2>Preparation Guide</h2><p>Apply links are below.</p><a href='#'>Click here to view PPT</a>"
+  }
+ ]
+}
