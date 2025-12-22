@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CRCE WebMail Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+  body {
+    background: linear-gradient(135deg,#0f0f23,#1a1a2e,#16213e);
+  }
+  .glass {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .email-active {
+    background: rgba(255,255,255,0.18);
+  }
+</style>
+</head>
+
+<body class="text-white h-screen overflow-hidden">
+
+<div class="flex h-screen p-4 gap-4">
+
+<!-- SIDEBAR -->
+<aside class="w-72 glass rounded-2xl p-6 flex flex-col">
+  <div class="flex items-center gap-3 mb-8">
+    <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center font-bold">C</div>
+    <div>
+      <p class="font-semibold">Fr. CRCE</p>
+      <p class="text-xs text-gray-400">Student Mail</p>
+    </div>
+  </div>
+
+  <nav class="space-y-2 text-sm flex-1">
+    <div class="glass px-4 py-3 rounded-xl flex items-center gap-3">
+      <i data-lucide="inbox" class="w-4 h-4"></i> Inbox
+    </div>
+    <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
+      <i data-lucide="star" class="w-4 h-4"></i> Starred
+    </div>
+    <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
+      <i data-lucide="send" class="w-4 h-4"></i> Sent
+    </div>
+  </nav>
+
+  <div class="glass p-4 rounded-xl">
+    <p id="userInfo" class="text-sm font-semibold"></p>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="flex-1 glass rounded-2xl p-6 flex flex-col">
+
+<!-- TOP BAR -->
+<div class="flex justify-between items-center mb-4">
+  <h1 class="text-xl font-bold">Inbox</h1>
+  <div class="space-x-2">
+    <button id="refreshBtn" class="px-3 py-1 text-sm border border-white/30 rounded">Refresh</button>
+    <button id="logout" class="px-3 py-1 text-sm bg-red-600 rounded">Logout</button>
+  </div>
+</div>
+
+<div class="flex gap-4 flex-1 overflow-hidden">
+
+<!-- EMAIL LIST -->
+<div class="w-2/5 space-y-2 overflow-y-auto pr-2" id="mailList"></div>
+
+<!-- EMAIL VIEW -->
+<div class="flex-1 glass rounded-xl p-6 overflow-y-auto" id="mailViewer">
+  <p class="text-gray-400 text-center mt-20">Select an email to read</p>
+</div>
+
+</div>
+
+<div class="flex justify-end mt-4 gap-2">
+  <button id="markBtn" class="px-3 py-1 text-sm border border-white/30 rounded">
+    Mark Unread
+  </button>
+  <button id="openModal" class="px-3 py-1 text-sm border border-white/30 rounded">
+    Open Modal
+  </button>
+</div>
+
+</main>
+</div>
+
+<!-- MODAL -->
+<div id="modalRoot" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center"></div>
+
+<script>
+lucide.createIcons();
+
+/* ===== BACKEND LOGIC (UNCHANGED) ===== */
+
+const token = localStorage.getItem('crc_token');
+const roll = localStorage.getItem('crc_roll');
+if (!token || !roll) window.location.href = '/';
+
+const state = {
+  emails: [],
+  selected: null,
+  read: JSON.parse(localStorage.getItem('crc_read_' + roll) || '[]')
+};
+
+async function fetchEmails() {
+  const res = await fetch('/api/get-emails', {
+    headers: { 'Authorization': 'Bearer ' + token }
+  });
+  if (!res.ok) {
+    alert('Failed to load emails');
+    if (res.status === 401) window.location.href = '/';
+    return;
+  }
+  const data = await res.json();
+  state.emails = data.emails || [];
+  renderList();
+}
+
+function renderList() {
+  const container = document.getElementById('mailList');
+  container.innerHTML = '';
+
+  state.emails.forEach(e => {
+    const div = document.createElement('div');
+    div.className =
+      'glass p-4 rounded-xl cursor-pointer hover:bg-white/10 ' +
+      (state.read.includes(e.id) ? '' : 'email-active');
+
+    div.innerHTML = `
+      <p class="font-semibold">${escapeHtml(e.sender)}</p>
+      <p class="text-sm text-gray-300">${escapeHtml(e.subject)}</p>
+      <p class="text-xs text-gray-400 mt-1">${escapeHtml(e.timestamp)}</p>
+    `;
+    div.onclick = () => selectEmail(e, div);
+    container.appendChild(div);
+  });
+}
+
+function selectEmail(email, el) {
+  state.selected = email;
+
+  if (!state.read.includes(email.id)) {
+    state.read.push(email.id);
+    localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
+  }
+
+  document.querySelectorAll('#mailList > div')
+    .forEach(d => d.classList.remove('email-active'));
+  el.classList.add('email-active');
+
+  document.getElementById('mailViewer').innerHTML = `
+    <h2 class="text-xl font-bold mb-2">${escapeHtml(email.subject)}</h2>
+    <p class="text-sm text-gray-400 mb-4">
+      From ${escapeHtml(email.sender)} • ${escapeHtml(email.timestamp)}
+    </p>
+    <div>${email.body}</div>
+  `;
+}
+
+document.getElementById('logout').onclick = () => {
+  localStorage.clear();
+  window.location.href = '/';
+};
+
+document.getElementById('refreshBtn').onclick = fetchEmails;
+
+document.getElementById('markBtn').onclick = () => {
+  if (!state.selected) return alert('Select an email first');
+  const i = state.read.indexOf(state.selected.id);
+  if (i !== -1) state.read.splice(i, 1);
+  else state.read.push(state.selected.id);
+  localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
+  renderList();
+};
+
+document.getElementById('openModal').onclick = () => {
+  if (!state.selected) return alert('Select an email first');
+  const root = document.getElementById('modalRoot');
+  root.classList.remove('hidden');
+  root.innerHTML = `
+    <div class="glass p-6 rounded-xl max-w-xl w-full">
+      <div class="flex justify-between mb-2">
+        <h3 class="font-semibold">${escapeHtml(state.selected.subject)}</h3>
+        <button onclick="closeModal()">Close</button>
+      </div>
+      ${state.selected.body}
+    </div>`;
+};
+
+function closeModal() {
+  const root = document.getElementById('modalRoot');
+  root.classList.add('hidden');
+  root.innerHTML = '';
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+document.getElementById('userInfo').textContent =
+  roll + ' — ' + (localStorage.getItem('crc_name') || 'Student');
+
+fetchEmails();
+</script>
+
+</body>
+</html>

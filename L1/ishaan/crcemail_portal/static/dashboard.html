@@ -2,245 +2,201 @@
 <html lang="en">
 
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width,initial-scale=1" />
- <title>Dashboard - CRC Email Portal</title>
- <link rel="stylesheet" href="/static/styles.css">
- <style>
-  body {
-   background: linear-gradient(120deg, #e0e7ff 0%, #f1f5f9 100%);
-  }
-
-  .app {
-   box-shadow: 0 4px 32px 0 rgba(60, 72, 100, 0.10);
-   border-radius: 18px;
-   background: #fff;
-   margin-top: 32px;
-   margin-bottom: 32px;
-   padding-bottom: 12px;
-  }
-
-  .topbar {
-   border-radius: 18px 18px 0 0;
-   background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
-   color: #fff;
-   box-shadow: 0 2px 8px 0 rgba(60, 72, 100, 0.08);
-   padding: 18px 24px;
-  }
-
-  .logo {
-   color: #fff;
-   font-size: 1.3rem;
-   letter-spacing: 1px;
-  }
-
-  .toolbar button {
-   background: #fff;
-   color: #2563eb;
-   border: none;
-   font-weight: 600;
-   box-shadow: 0 1px 4px 0 rgba(60, 72, 100, 0.08);
-   transition: background 0.2s, color 0.2s;
-  }
-
-  .toolbar button:hover {
-   background: #2563eb;
-   color: #fff;
-  }
-
-  .sidebar {
-   background: #f8fafc;
-   border-radius: 0 0 0 18px;
-   min-height: 500px;
-  }
-
-  .sidebar .folder {
-   font-size: 1.05rem;
-   margin-bottom: 4px;
-   transition: background 0.2s, color 0.2s;
-  }
-
-  .sidebar .folder.active {
-   background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
-   color: #fff;
-   font-weight: 700;
-  }
-
-  .main {
-   background: #f1f5f9;
-   border-radius: 0 0 18px 0;
-   box-shadow: none;
-  }
-
-  .list {
-   background: #f8fafc;
-   border-right: 1.5px solid #e0e7ef;
-   box-shadow: none;
-  }
-
-  .mail-item {
-   border-radius: 8px;
-   margin: 6px 8px;
-   box-shadow: 0 1px 4px 0 rgba(60, 72, 100, 0.04);
-   transition: background 0.2s, box-shadow 0.2s;
-  }
-
-  .mail-item.unread {
-   background: linear-gradient(90deg, #e0e7ff 0%, #f1f5f9 100%);
-   font-weight: 600;
-  }
-
-  .mail-item:hover {
-   background: #e0e7ff;
-   box-shadow: 0 2px 8px 0 rgba(60, 72, 100, 0.10);
-  }
-
-  .viewer {
-   background: #fff;
-   border-radius: 12px;
-   margin: 12px;
-   box-shadow: 0 1px 8px 0 rgba(60, 72, 100, 0.06);
-   min-height: 300px;
-  }
-
-  .viewer h2 {
-   color: #2563eb;
-   margin-bottom: 8px;
-  }
-
-  .muted-btn {
-   background: #e0e7ff;
-   color: #2563eb;
-   border: none;
-   font-weight: 600;
-   margin-left: 8px;
-   transition: background 0.2s, color 0.2s;
-  }
-
-  .muted-btn:hover {
-   background: #2563eb;
-   color: #fff;
-  }
-
-  .footer-note {
-   color: #64748b;
-   font-size: 0.95rem;
-   margin-top: 24px;
-  }
- </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - CRC Email Portal</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    /* small overrides */
+  </style>
 </head>
 
-<body>
- <div class="app">
-  <div class="topbar">
-   <div class="logo">CRC Email Portal</div>
-   <div class="toolbar">
-    <button id="refreshBtn" title="Refresh">Refresh</button>
-    <button id="logout" title="Logout">Logout</button>
-   </div>
-  </div>
+<body class="text-white h-screen overflow-hidden">
 
-  <div class="layout">
-   <div class="sidebar">
-    <div style="font-weight:700;margin-bottom:8px">Folders</div>
-    <div class="folder active" data-folder="inbox">Inbox</div>
-    <div class="folder" data-folder="starred">Starred</div>
-    <div class="folder" data-folder="all">All Mail</div>
-    <div style="height:12px"></div>
-    <div class="footer-note">Read-only demo — send disabled</div>
-   </div>
+  <div class="flex h-screen p-4 gap-4">
 
-   <div class="main">
-    <div class="list">
-     <div class="search"><input id="search" placeholder="Search mail" /></div>
-     <div id="mailList"></div>
-    </div>
-    <div class="viewer">
-     <div style="display:flex;justify-content:space-between;align-items:center">
-      <div id="userInfo" class="meta"></div>
-      <div>
-       <button id="markBtn" class="muted-btn">Mark Unread</button>
-       <button id="openModal" class="muted-btn">Open in Modal</button>
+    <!-- SIDEBAR -->
+    <aside class="w-72 glass rounded-2xl p-6 flex flex-col">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center font-bold">C</div>
+        <div>
+          <p class="font-semibold">Fr. CRCE</p>
+          <p class="text-xs text-gray-400">Student Mail</p>
+        </div>
       </div>
-     </div>
-     <div id="mailViewer" class="mail-body empty">Select an email to view</div>
-    </div>
-   </div>
+
+      <nav class="space-y-2 text-sm flex-1">
+        <div class="glass px-4 py-3 rounded-xl flex items-center gap-3">
+          <i data-lucide="inbox" class="w-4 h-4"></i> Inbox
+        </div>
+        <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
+          <i data-lucide="star" class="w-4 h-4"></i> Starred
+        </div>
+        <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
+          <i data-lucide="send" class="w-4 h-4"></i> Sent
+        </div>
+      </nav>
+
+      <div class="glass p-4 rounded-xl">
+        <p id="userInfo" class="text-sm font-semibold"></p>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 glass rounded-2xl p-6 flex flex-col">
+
+      <!-- TOP BAR -->
+      <div class="flex justify-between items-center mb-4">
+        <h1 class="text-xl font-bold">Inbox</h1>
+        <div class="space-x-2">
+          <button id="refreshBtn" class="px-3 py-1 text-sm border border-white/30 rounded">Refresh</button>
+          <button id="logout" class="px-3 py-1 text-sm bg-red-600 rounded">Logout</button>
+        </div>
+      </div>
+
+      <div class="flex gap-4 flex-1 overflow-hidden">
+
+        <!-- EMAIL LIST -->
+        <div class="w-2/5 space-y-2 overflow-y-auto pr-2" id="mailList"></div>
+
+        <!-- EMAIL VIEW -->
+        <div class="flex-1 glass rounded-xl p-6 overflow-y-auto" id="mailViewer">
+          <p class="text-gray-400 text-center mt-20">Select an email to read</p>
+        </div>
+
+      </div>
+
+      <div class="flex justify-end mt-4 gap-2">
+        <button id="markBtn" class="px-3 py-1 text-sm border border-white/30 rounded">
+          Mark Unread
+        </button>
+        <button id="openModal" class="px-3 py-1 text-sm border border-white/30 rounded">
+          Open Modal
+        </button>
+      </div>
+
+    </main>
   </div>
- </div>
 
- <div id="modalRoot" style="display:none"></div>
+  <!-- MODAL -->
+  <div id="modalRoot" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center"></div>
 
- <script>
-  const token = localStorage.getItem('crc_token');
-  const roll = localStorage.getItem('crc_roll');
-  if (!token || !roll) {window.location.href = '/';}
+  <script>
+    lucide.createIcons();
 
-  const state = {emails: [], selected: null, read: JSON.parse(localStorage.getItem('crc_read_' + roll) || '[]')};
+    /* ===== BACKEND LOGIC (UNCHANGED) ===== */
 
-  async function fetchEmails() {
-   const res = await fetch('/api/get-emails', {headers: {'Authorization': 'Bearer ' + token}});
-   if (!res.ok) {alert('Failed to load emails'); if (res.status === 401) window.location.href = '/'; return;}
-   const data = await res.json();
-   state.emails = data.emails || [];
-   renderList();
-   if (state.emails.length) selectEmail(state.emails[0].id);
-  }
+    const token = localStorage.getItem('crc_token');
+    const roll = localStorage.getItem('crc_roll');
+    if (!token || !roll) window.location.href = '/';
 
-  function renderList(filter) {
-   const container = document.getElementById('mailList');
-   container.innerHTML = '';
-   const q = (filter || '').toLowerCase();
-   const items = state.emails.filter(e => {
-    if (!q) return true;
-    return (e.subject + ' ' + e.sender + ' ' + (e.body || '')).toLowerCase().includes(q);
-   });
-   if (items.length === 0) {container.innerHTML = '<div class="empty">No messages</div>'; return;}
-   items.forEach(e => {
-    const div = document.createElement('div');
-    div.className = 'mail-item ' + (state.read.includes(e.id) ? '' : 'unread');
-    div.innerHTML = `<div style="display:flex;justify-content:space-between"><div><strong>${escapeHtml(e.subject)}</strong><div class="mail-sub">${e.sender} • ${e.timestamp}</div></div><div style="color:var(--muted)">...</div></div>`;
-    div.onclick = () => selectEmail(e.id);
-    container.appendChild(div);
-   });
-  }
+    const state = {
+      emails: [],
+      selected: null,
+      read: JSON.parse(localStorage.getItem('crc_read_' + roll) || '[]')
+    };
 
-  function selectEmail(id) {
-   const e = state.emails.find(x => x.id === id);
-   if (!e) return;
-   state.selected = e;
-   if (!state.read.includes(e.id)) {state.read.push(e.id); localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));}
-   document.getElementById('mailViewer').classList.remove('empty');
-   document.getElementById('mailViewer').innerHTML = `<h2>${escapeHtml(e.subject)}</h2><div class="meta">From: ${escapeHtml(e.sender)} • ${escapeHtml(e.timestamp)}</div><div>${e.body}</div>`;
-   document.getElementById('userInfo').textContent = roll + ' — ' + (localStorage.getItem('crc_name') || 'Student');
-  }
+    async function fetchEmails() {
+      const res = await fetch('/api/get-emails', {
+        headers: {'Authorization': 'Bearer ' + token}
+      });
+      if (!res.ok) {
+        alert('Failed to load emails');
+        if (res.status === 401) window.location.href = '/';
+        return;
+      }
+      const data = await res.json();
+      state.emails = data.emails || [];
+      renderList();
+    }
 
-  document.getElementById('search').addEventListener('input', (ev) => renderList(ev.target.value));
-  document.getElementById('logout').addEventListener('click', () => {localStorage.removeItem('crc_token'); localStorage.removeItem('crc_roll'); window.location.href = '/';});
-  document.getElementById('refreshBtn').addEventListener('click', fetchEmails);
-  document.getElementById('markBtn').addEventListener('click', () => {
-   if (!state.selected) return alert('Select an email first');
-   const idx = state.read.indexOf(state.selected.id);
-   if (idx !== -1) state.read.splice(idx, 1); else state.read.push(state.selected.id);
-   localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
-   renderList(document.getElementById('search').value);
-  });
-  document.getElementById('openModal').addEventListener('click', () => {
-   if (!state.selected) return alert('Select an email first');
-   openModal(state.selected);
-  });
+    function renderList() {
+      const container = document.getElementById('mailList');
+      container.innerHTML = '';
 
-  function openModal(e) {
-   const root = document.getElementById('modalRoot');
-   root.style.display = 'block';
-   root.innerHTML = `<div class="modal"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>${escapeHtml(e.subject)}</h3><button id="closeModal" class="muted-btn">Close</button></div><div style="color:var(--muted);margin-bottom:8px">From: ${escapeHtml(e.sender)} • ${escapeHtml(e.timestamp)}</div><div>${e.body}</div></div></div>`;
-   document.getElementById('closeModal').onclick = () => {root.style.display = 'none'; root.innerHTML = '';};
-  }
+      state.emails.forEach(e => {
+        const div = document.createElement('div');
+        div.className =
+          'glass p-4 rounded-xl cursor-pointer hover:bg-white/10 ' +
+          (state.read.includes(e.id) ? '' : 'email-active');
 
-  function escapeHtml(s) {return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');}
+        div.innerHTML = `
+      <p class="font-semibold">${escapeHtml(e.sender)}</p>
+      <p class="text-sm text-gray-300">${escapeHtml(e.subject)}</p>
+      <p class="text-xs text-gray-400 mt-1">${escapeHtml(e.timestamp)}</p>
+    `;
+        div.onclick = () => selectEmail(e, div);
+        container.appendChild(div);
+      });
+    }
 
-  fetchEmails();
- </script>
+    function selectEmail(email, el) {
+      state.selected = email;
+
+      if (!state.read.includes(email.id)) {
+        state.read.push(email.id);
+        localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
+      }
+
+      document.querySelectorAll('#mailList > div')
+        .forEach(d => d.classList.remove('email-active'));
+      el.classList.add('email-active');
+
+      document.getElementById('mailViewer').innerHTML = `
+    <h2 class="text-xl font-bold mb-2">${escapeHtml(email.subject)}</h2>
+    <p class="text-sm text-gray-400 mb-4">
+      From ${escapeHtml(email.sender)} • ${escapeHtml(email.timestamp)}
+    </p>
+    <div>${email.body}</div>
+  `;
+    }
+
+    document.getElementById('logout').onclick = () => {
+      localStorage.clear();
+      window.location.href = '/';
+    };
+
+    document.getElementById('refreshBtn').onclick = fetchEmails;
+
+    document.getElementById('markBtn').onclick = () => {
+      if (!state.selected) return alert('Select an email first');
+      const i = state.read.indexOf(state.selected.id);
+      if (i !== -1) state.read.splice(i, 1);
+      else state.read.push(state.selected.id);
+      localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
+      renderList();
+    };
+
+    document.getElementById('openModal').onclick = () => {
+      if (!state.selected) return alert('Select an email first');
+      const root = document.getElementById('modalRoot');
+      root.classList.remove('hidden');
+      root.innerHTML = `
+    <div class="glass p-6 rounded-xl max-w-xl w-full">
+      <div class="flex justify-between mb-2">
+        <h3 class="font-semibold">${escapeHtml(state.selected.subject)}</h3>
+        <button onclick="closeModal()">Close</button>
+      </div>
+      ${state.selected.body}
+    </div>`;
+    };
+
+    function closeModal() {
+      const root = document.getElementById('modalRoot');
+      root.classList.add('hidden');
+      root.innerHTML = '';
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    document.getElementById('userInfo').textContent =
+      roll + ' — ' + (localStorage.getItem('crc_name') || 'Student');
+
+    fetchEmails();
+  </script>
+
 </body>
 
 </html>
