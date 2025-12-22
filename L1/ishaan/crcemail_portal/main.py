@@ -12,10 +12,13 @@ import hmac
 import hashlib
 import os
 
+
 app = FastAPI()
 
-# Serving the static HTML files
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Use absolute path for static directory
+import pathlib
+static_dir = pathlib.Path(__file__).parent / "static"
+app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
 
 class LoginRequest(BaseModel):
@@ -127,4 +130,4 @@ async def fetch_emails(authorization: Optional[str] = Header(None)):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8001)

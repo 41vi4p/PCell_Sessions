@@ -4,91 +4,167 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dashboard - CRC Email Portal</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <title>CRC Mail Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <style>
-    /* small overrides */
+    body {
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .email-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateX(6px);
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 
-<body class="text-white h-screen overflow-hidden">
+<body class="text-white overflow-hidden">
+  <!-- Animated Background Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl floating"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl floating"
+      style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl floating"
+      style="animation-delay: -4s;"></div>
+  </div>
 
-  <div class="flex h-screen p-4 gap-4">
-
-    <!-- SIDEBAR -->
-    <aside class="w-72 glass rounded-2xl p-6 flex flex-col">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center font-bold">C</div>
-        <div>
-          <p class="font-semibold">Fr. CRCE</p>
-          <p class="text-xs text-gray-400">Student Mail</p>
-        </div>
+  <div class="relative z-10 h-screen flex flex-col lg:flex-row">
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-80 glass m-4 rounded-2xl p-6 flex flex-col">
+      <div class="mb-10">
+        <p class="text-xs uppercase tracking-[0.4em] text-blue-200">CRC Mail</p>
+        <h1
+          class="text-2xl font-bold bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent"
+          id="portalTitle">Student Portal</h1>
+        <p class="text-gray-400 text-sm mt-1" id="portalSubtitle">Secure student messaging</p>
       </div>
 
-      <nav class="space-y-2 text-sm flex-1">
-        <div class="glass px-4 py-3 rounded-xl flex items-center gap-3">
-          <i data-lucide="inbox" class="w-4 h-4"></i> Inbox
+      <button id="composeBtn"
+        class="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-4 rounded-xl mb-6 transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center justify-center gap-2">
+        <i data-lucide="plus" class="w-5 h-5"></i>
+        Compose
+      </button>
+
+      <nav class="flex-1 space-y-2 text-sm">
+        <div class="flex items-center p-3 rounded-xl glass transition-all duration-300 email-card gap-3" id="navInbox">
+          <i data-lucide="inbox" class="w-5 h-5 text-blue-300"></i>
+          <span class="font-medium">Inbox</span>
+          <span class="ml-auto bg-red-500/80 text-white text-xs px-2 py-1 rounded-full" id="inboxBadge">0</span>
         </div>
-        <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
-          <i data-lucide="star" class="w-4 h-4"></i> Starred
+        <div class="flex items-center p-3 rounded-xl glass transition-all duration-300 email-card gap-3 opacity-70">
+          <i data-lucide="star" class="w-5 h-5 text-yellow-300"></i>
+          <span class="font-medium">Starred</span>
         </div>
-        <div class="px-4 py-3 rounded-xl hover:bg-white/10 cursor-pointer flex gap-3">
-          <i data-lucide="send" class="w-4 h-4"></i> Sent
+        <div class="flex items-center p-3 rounded-xl glass transition-all duration-300 email-card gap-3 opacity-70">
+          <i data-lucide="send" class="w-5 h-5 text-green-300"></i>
+          <span class="font-medium">Sent</span>
+        </div>
+        <div class="flex items-center p-3 rounded-xl glass transition-all duration-300 email-card gap-3 opacity-70">
+          <i data-lucide="archive" class="w-5 h-5 text-purple-300"></i>
+          <span class="font-medium">Archive</span>
+        </div>
+        <div class="flex items-center p-3 rounded-xl glass transition-all duration-300 email-card gap-3 opacity-70">
+          <i data-lucide="trash" class="w-5 h-5 text-rose-300"></i>
+          <span class="font-medium">Trash</span>
         </div>
       </nav>
 
-      <div class="glass p-4 rounded-xl">
-        <p id="userInfo" class="text-sm font-semibold"></p>
+      <div class="mt-6 p-4 glass rounded-xl">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-lg font-bold"
+            id="userAvatar">U</div>
+          <div class="min-w-0">
+            <p class="font-semibold truncate" id="userName">Student</p>
+            <p class="text-xs text-gray-300 truncate" id="userEmail">student@crce.edu</p>
+            <p class="text-xs text-gray-500 mt-1" id="userRoll">Roll</p>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- MAIN -->
-    <main class="flex-1 glass rounded-2xl p-6 flex flex-col">
-
-      <!-- TOP BAR -->
-      <div class="flex justify-between items-center mb-4">
-        <h1 class="text-xl font-bold">Inbox</h1>
-        <div class="space-x-2">
-          <button id="refreshBtn" class="px-3 py-1 text-sm border border-white/30 rounded">Refresh</button>
-          <button id="logout" class="px-3 py-1 text-sm bg-red-600 rounded">Logout</button>
+    <!-- Main Content -->
+    <main class="flex-1 m-4 lg:ml-0 glass rounded-2xl flex flex-col overflow-hidden">
+      <header class="p-6 border-b border-white/10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h2 class="text-3xl font-bold" id="inboxTitle">Inbox</h2>
+          <p class="text-sm text-gray-400">Latest updates and announcements for you</p>
         </div>
-      </div>
-
-      <div class="flex gap-4 flex-1 overflow-hidden">
-
-        <!-- EMAIL LIST -->
-        <div class="w-2/5 space-y-2 overflow-y-auto pr-2" id="mailList"></div>
-
-        <!-- EMAIL VIEW -->
-        <div class="flex-1 glass rounded-xl p-6 overflow-y-auto" id="mailViewer">
-          <p class="text-gray-400 text-center mt-20">Select an email to read</p>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <input type="text" placeholder="Search emails..."
+              class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300"
+              disabled>
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300"></i>
+          </div>
+          <button id="refreshBtn" class="p-2 glass rounded-lg hover:bg-white/20 transition-all duration-300"
+            title="Refresh inbox">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </button>
+          <button id="logout"
+            class="px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-all duration-300 font-semibold text-sm">Logout</button>
         </div>
+      </header>
 
-      </div>
+      <section class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        <div
+          class="lg:w-5/12 xl:w-4/12 h-64 lg:h-auto overflow-y-auto p-6 space-y-4 border-b lg:border-b-0 lg:border-r border-white/10"
+          id="mailList"></div>
+        <div class="flex-1 overflow-y-auto p-6" id="mailViewer">
+          <div class="flex flex-col items-center justify-center h-full text-center text-gray-400">
+            <i data-lucide="mail" class="w-12 h-12 mb-4"></i>
+            <p>Select an email to read</p>
+          </div>
+        </div>
+      </section>
 
-      <div class="flex justify-end mt-4 gap-2">
-        <button id="markBtn" class="px-3 py-1 text-sm border border-white/30 rounded">
-          Mark Unread
-        </button>
-        <button id="openModal" class="px-3 py-1 text-sm border border-white/30 rounded">
-          Open Modal
-        </button>
-      </div>
-
+      <footer class="p-6 border-t border-white/10 flex flex-wrap gap-3 justify-end bg-white/5">
+        <button id="markBtn"
+          class="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20 transition-all duration-300">Toggle
+          Read State</button>
+        <button id="openModal"
+          class="px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-sm font-medium hover:bg-white/20 transition-all duration-300">Open
+          Modal View</button>
+      </footer>
     </main>
   </div>
 
-  <!-- MODAL -->
-  <div id="modalRoot" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center"></div>
+  <div id="modalRoot" class="hidden fixed inset-0 bg-black/60 items-center justify-center p-4 z-20"></div>
 
   <script>
     lucide.createIcons();
 
-    /* ===== BACKEND LOGIC (UNCHANGED) ===== */
-
     const token = localStorage.getItem('crc_token');
     const roll = localStorage.getItem('crc_roll');
-    if (!token || !roll) window.location.href = '/';
+    if (!token || !roll) {
+      window.location.href = '/';
+    }
 
     const state = {
       emails: [],
@@ -96,107 +172,212 @@
       read: JSON.parse(localStorage.getItem('crc_read_' + roll) || '[]')
     };
 
-    async function fetchEmails() {
-      const res = await fetch('/api/get-emails', {
-        headers: {'Authorization': 'Bearer ' + token}
-      });
-      if (!res.ok) {
-        alert('Failed to load emails');
-        if (res.status === 401) window.location.href = '/';
-        return;
-      }
-      const data = await res.json();
-      state.emails = data.emails || [];
-      renderList();
+    const mailList = document.getElementById('mailList');
+    const mailViewer = document.getElementById('mailViewer');
+    const inboxBadge = document.getElementById('inboxBadge');
+    const inboxTitle = document.getElementById('inboxTitle');
+    const portalTitle = document.getElementById('portalTitle');
+    const portalSubtitle = document.getElementById('portalSubtitle');
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function initials(name) {
+      if (!name) return '?';
+      const parts = String(name).trim().split(/\s+/);
+      if (parts.length === 1) return parts[0].charAt(0).toUpperCase();
+      return (parts[0].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase();
     }
 
     function renderList() {
-      const container = document.getElementById('mailList');
-      container.innerHTML = '';
+      mailList.innerHTML = '';
+      inboxBadge.textContent = state.emails.length;
 
-      state.emails.forEach(e => {
-        const div = document.createElement('div');
-        div.className =
-          'glass p-4 rounded-xl cursor-pointer hover:bg-white/10 ' +
-          (state.read.includes(e.id) ? '' : 'email-active');
+      if (!state.emails.length) {
+        mailList.innerHTML = '<div class="text-center text-gray-400 py-16">No messages yet.</div>';
+        return;
+      }
 
-        div.innerHTML = `
-      <p class="font-semibold">${escapeHtml(e.sender)}</p>
-      <p class="text-sm text-gray-300">${escapeHtml(e.subject)}</p>
-      <p class="text-xs text-gray-400 mt-1">${escapeHtml(e.timestamp)}</p>
-    `;
-        div.onclick = () => selectEmail(e, div);
-        container.appendChild(div);
+      state.emails.forEach((email) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'w-full text-left glass email-card transition-all duration-300 rounded-2xl p-5 flex gap-4 items-start border border-transparent';
+
+        if (!state.read.includes(email.id)) {
+          item.classList.add('border-blue-400/60');
+        }
+        if (state.selected && state.selected.id === email.id) {
+          item.classList.add('ring-2', 'ring-blue-400/60');
+        }
+
+        const avatar = initials(email.sender);
+        const preview = escapeHtml((email.body || '').replace(/\s+/g, ' ').slice(0, 90));
+
+        item.innerHTML = `
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center font-semibold text-lg">${avatar}</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="font-semibold text-white truncate max-w-[12rem]">${escapeHtml(email.sender)}</span>
+              <span class="text-xs text-gray-300">${escapeHtml(email.timestamp)}</span>
+            </div>
+            <p class="text-sm font-medium text-blue-200 truncate">${escapeHtml(email.subject)}</p>
+            <p class="text-xs text-gray-300 mt-2 truncate">${preview}</p>
+          </div>
+        `;
+
+        item.addEventListener('click', () => selectEmail(email));
+        mailList.appendChild(item);
       });
     }
 
-    function selectEmail(email, el) {
+    function selectEmail(email) {
       state.selected = email;
-
       if (!state.read.includes(email.id)) {
         state.read.push(email.id);
         localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
       }
-
-      document.querySelectorAll('#mailList > div')
-        .forEach(d => d.classList.remove('email-active'));
-      el.classList.add('email-active');
-
-      document.getElementById('mailViewer').innerHTML = `
-    <h2 class="text-xl font-bold mb-2">${escapeHtml(email.subject)}</h2>
-    <p class="text-sm text-gray-400 mb-4">
-      From ${escapeHtml(email.sender)} • ${escapeHtml(email.timestamp)}
-    </p>
-    <div>${email.body}</div>
-  `;
+      renderList();
+      mailViewer.innerHTML = `
+        <article class="max-w-3xl mx-auto">
+          <header class="border-b border-white/10 pb-4 mb-6">
+            <h2 class="text-3xl font-bold mb-2">${escapeHtml(email.subject)}</h2>
+            <div class="text-sm text-gray-300 flex flex-wrap gap-4">
+              <span>From <strong class="text-white">${escapeHtml(email.sender)}</strong></span>
+              <span>${escapeHtml(email.timestamp)}</span>
+            </div>
+          </header>
+          <section class="prose prose-invert max-w-none text-gray-100 leading-relaxed text-base">
+            ${email.body}
+          </section>
+        </article>`;
     }
 
-    document.getElementById('logout').onclick = () => {
+    async function fetchEmails() {
+      try {
+        const res = await fetch('/api/get-emails', {
+          headers: {'Authorization': 'Bearer ' + token}
+        });
+        if (!res.ok) {
+          if (res.status === 401) {
+            window.location.href = '/';
+            return;
+          }
+          alert('Failed to load emails');
+          return;
+        }
+        const data = await res.json();
+        state.emails = data.emails || [];
+        const active = state.selected ? state.emails.find(e => e.id === state.selected.id) : null;
+        state.selected = active || null;
+        renderList();
+        if (state.selected) {
+          selectEmail(state.selected);
+        }
+      } catch (error) {
+        console.error(error);
+        alert('Unable to reach the server.');
+      }
+    }
+
+    document.getElementById('logout').addEventListener('click', () => {
       localStorage.clear();
       window.location.href = '/';
-    };
+    });
 
-    document.getElementById('refreshBtn').onclick = fetchEmails;
+    document.getElementById('refreshBtn').addEventListener('click', fetchEmails);
 
-    document.getElementById('markBtn').onclick = () => {
-      if (!state.selected) return alert('Select an email first');
+    document.getElementById('markBtn').addEventListener('click', () => {
+      if (!state.selected) {
+        alert('Select an email first');
+        return;
+      }
       const i = state.read.indexOf(state.selected.id);
-      if (i !== -1) state.read.splice(i, 1);
-      else state.read.push(state.selected.id);
+      if (i !== -1) {
+        state.read.splice(i, 1);
+      } else {
+        state.read.push(state.selected.id);
+      }
       localStorage.setItem('crc_read_' + roll, JSON.stringify(state.read));
+      const current = state.selected;
       renderList();
-    };
+      if (current) {
+        state.selected = current;
+        selectEmail(current);
+      }
+    });
 
-    document.getElementById('openModal').onclick = () => {
-      if (!state.selected) return alert('Select an email first');
+    document.getElementById('openModal').addEventListener('click', () => {
+      if (!state.selected) {
+        alert('Select an email first');
+        return;
+      }
       const root = document.getElementById('modalRoot');
       root.classList.remove('hidden');
+      root.classList.add('flex');
       root.innerHTML = `
-    <div class="glass p-6 rounded-xl max-w-xl w-full">
-      <div class="flex justify-between mb-2">
-        <h3 class="font-semibold">${escapeHtml(state.selected.subject)}</h3>
-        <button onclick="closeModal()">Close</button>
-      </div>
-      ${state.selected.body}
-    </div>`;
-    };
+        <div class="glass rounded-2xl p-6 max-w-2xl w-full">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-semibold">${escapeHtml(state.selected.subject)}</h3>
+            <button onclick="closeModal()" class="text-rose-400 font-semibold">Close</button>
+          </div>
+          <div class="text-sm text-gray-200 mb-4 space-y-1">
+            <p><strong>From:</strong> ${escapeHtml(state.selected.sender)}</p>
+            <p><strong>Time:</strong> ${escapeHtml(state.selected.timestamp)}</p>
+          </div>
+          <div class="text-gray-100 leading-relaxed">
+            ${state.selected.body}
+          </div>
+        </div>`;
+    });
+
+    document.getElementById('composeBtn').addEventListener('click', () => {
+      const root = document.getElementById('modalRoot');
+      root.classList.remove('hidden');
+      root.classList.add('flex');
+      root.innerHTML = `
+        <div class="glass rounded-2xl p-6 max-w-xl w-full">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-semibold">Compose Message</h3>
+            <button onclick="closeModal()" class="text-rose-400 font-semibold">Close</button>
+          </div>
+          <form id="composeForm" class="space-y-3">
+            <input type="text" id="composeTo" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="To" required>
+            <input type="text" id="composeSubject" class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Subject" required>
+            <textarea id="composeBody" class="w-full h-40 px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Message" required></textarea>
+            <button type="submit" class="w-full py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 font-semibold">Send</button>
+          </form>
+        </div>`;
+
+      document.getElementById('composeForm').onsubmit = (event) => {
+        event.preventDefault();
+        alert('Sending email is not implemented in this demo.');
+        closeModal();
+      };
+    });
 
     function closeModal() {
       const root = document.getElementById('modalRoot');
       root.classList.add('hidden');
+      root.classList.remove('flex');
       root.innerHTML = '';
     }
+    window.closeModal = closeModal;
 
-    function escapeHtml(s) {
-      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
+    const storedName = localStorage.getItem('crc_name') || 'Student';
+    const storedEmail = localStorage.getItem('crc_email') || `${roll}@crce.edu`;
 
-    document.getElementById('userInfo').textContent =
-      roll + ' — ' + (localStorage.getItem('crc_name') || 'Student');
+    document.getElementById('userName').textContent = storedName;
+    document.getElementById('userEmail').textContent = storedEmail;
+    document.getElementById('userRoll').textContent = `Roll ${roll}`;
+    document.getElementById('userAvatar').textContent = initials(storedName || roll);
+    portalTitle.textContent = `Mail • ${roll}`;
+    portalSubtitle.textContent = storedName;
+    inboxTitle.textContent = `Inbox for ${roll}`;
 
     fetchEmails();
   </script>
-
 </body>
 
 </html>
