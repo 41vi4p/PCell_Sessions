@@ -2,426 +2,627 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <!--<link href="index_style.css" rel="stylesheet">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fr. Conceicao Rodrigues College of Engineering</title>
+  <link href="index_style.css" rel="stylesheet ">
 </head>
+
+<script>
+  const nav = document.getElementById("sideNav");
+  const toggleBtn = document.getElementById("navToggle");
+
+  let lastScrollY = window.scrollY;
+
+  // Manual toggle
+  toggleBtn.addEventListener("click", () => {
+    nav.classList.toggle("nav-hidden");
+  });
+
+  // Auto-hide on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+      nav.classList.add("nav-hidden");   // scrolling down → hide
+    } else {
+      nav.classList.remove("nav-hidden"); // scrolling up → show
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+
 
 <body>
 
-<header>
-  <h1>Fr. Conceicao Rodrigues College of Engineering</h1>
-  <p>An Autonomous Institute affiliated to University of Mumbai</p>
-  <p>NAAC "A" Grade Accredited</p>
-  <p>| <a href="http://mail.google.com/a/fragnel.edu.in/" target="_blank">Agnel Staff E-Mail</a>| <a href="http://mail.crce.edu.in/webMail/" target="_blank">Student Mail Service</a>|<a href="http://frcrce.ac.in/index.php/component/sppagebuilder/?view=page&id=427" target="_blank">Search</a>|</p>
-</header>
+    <!--===NAVIGATION====-->
+<button id="navToggle">☰ Menu</button>
+<nav class="primary-nav" id="sideNav">
 
-<nav>
-  <h2>Navigation</h2>
-
-  <section id="hero">
-    
-  </section>
-
-  <section id="Home">
-         
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <nav>
+  <!-- About Us -->
+    <h3>About Us</h3>
     <ol>
-    <li><a href="/index.php">Home</a></li>
-      About Us
-        <li><a href="/index.php/about-us/about-crce">About CRCE</a></li>
-        <li><a href="/index.php/about-us/director">From Director's Desk</a></li>
-        <li><a href="/index.php/about-us/drssr">I/C Principal - Dr. Sapna Prabhu</a></li>
-        <li><a href="/index.php/about-us/vision-mission">Vision and Mission</a></li>
-        <li>
-          Administration
-          <ol>
-            <li><a href="/index.php/about-us/administration/trustees">Trustees</a></li>
-            <li><a href="/index.php/about-us/administration/governance">Governance</a></li>
-            <li>
-              Governing Council
-              <ol>
-                <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Members_2025.pdf" target="_blank">Composition of Governing Council</a></li>
-                <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_13May2023.pdf" target="_blank">Minutes of Meeting 2022-2023</a></li>
-                <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_6April2024.pdf" target="_blank">Minutes of Meeting 2023-2024</a></li>
-                <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_4April2025.pdf" target="_blank">Minutes of Meeting 2024-2025</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/about-us/administration/local-management-council">Local Management Council</a></li>
-            <li><a href="/index.php/about-us/administration/college-development-committee">College Development Committee</a></li>
-            <li><a href="/index.php/about-us/administration/academic-cell">Academic Cell</a></li>
-            <li><a href="/images/2023/Strategic_Instt_Dev_Plan.pdf">Strategic Development Plan</a></li>
-            <li><a href="https://fragnel.edu.in/images/crce/Service_Rules.pdf">Service Rules</a></li>
-            <li><a href="/media/attachments/2024/04/25/revised_committee_1may2024.pdf" target="_blank">Staff Incharges</a></li>
-            <li><a href="https://frcrce.ac.in/images/2023/Revised_IRG_Policy_wef_2023.pdf">IRG Policy</a></li>
-          </ol>
-        </li>
-        <li>
-          General Information
-          <ol>
-            <li>
-              AICTE Approvals
-              <ol>
-                <li><a href="/images/2025/EOA_Report_2025-2026.pdf">Extension of Approval Letter 2025-26</a></li>
-                <li><a href="/images/2024/AICTE_Approvals2425.pdf" target="_blank">LOA and Subsequent EOAs</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/about-us/general-info/corevalues">Core Values</a></li>
-            <li><a href="/index.php/about-us/general-info/code-of-conduct">Code of Conduct</a></li>
-            <li><a href="/index.php/about-us/general-info/telephone-directory">Telephone Directory</a></li>
-            <li><a href="/index.php/about-us/general-info/common-infra">Common Infrastructure</a></li>
-          </ol>
-        </li>
-        <li><a href="/index.php/about-us/mandatory-disclosure">Mandatory Disclosure</a></li>
-        <li><a href="/index.php/about-us/contact-us">Contact Us</a></li>
-      </ol>
-    </li>
-    <li>
-      Academics
-      <ol>
-        <li>
-          Autonomous Curriculum
-          <ol>
-            <li><a href="/index.php/academics/autonomous-curriculum/rules-and-policies">Rules and Policies</a></li>
-            <li><a href="/index.php/academics/autonomous-curriculum/syllabus">Syllabus</a></li>
-          </ol>
-        </li>
-        <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/69-academic-calendar">Academic/Holiday Calendar</a></li>
-        <li>
-          Outreach Programmes
-          <ol>
-            <li><a href="/index.php/academics/outreach-and-mou-s/outreach-programmes">IIIRS-ISRO</a></li>
-          </ol>
-        </li>
-        <li><a href="/index.php/academics/list-of-mou-s">List of MOU's</a></li>
-        <li>
-          Examination
-          <ol>
-            <li><a href="/index.php/academics/examination/about-exam">About</a></li>
-            <li><a href="/index.php/academics/examination/exam-staff">Staff</a></li>
-            <li><a href="/index.php/academics/examination/exam-process">Examination Process</a></li>
-          </ol>
-        </li>
-        <li>
-          Teaching Learning Process
-          <ol>
-            <li><a href="/index.php/academics/tlp/tls">Teaching Learning Process</a></li>
-            <li><a href="/index.php/academics/tlp/lesson-plan">Lesson Plan</a></li>
-            <li><a href="/index.php/academics/tlp/syllabus">Syllabus</a></li>
-          </ol>
-        </li>
-        <li>
-          NAAC
-          <ol>
-            <li><a href="https://frcrce.ac.in/images/2023/NAAC_Certificate_2023.pdf">Certificate of Accreditation</a></li>
-            <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/159-aqar-2023-24">AQAR 2023-24</a></li>
-            <li>
-              AQAR 2022-23
-              <ol>
-                <li><a href="https://frcrce.ac.in/images/2023/AQAR_2022-23-approved.pdf">AQAR 2022-23 - Approved</a></li>
-                <li><a href="https://frcrce.ac.in/images/2023/ssr_22_23.pdf">SSR 2022-23</a></li>
-                <li><a href="/index.php/academics/naac/aqar-2022-23/academic-calendar">Academic Calendar</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/academics/naac/naac-2019">NAAC 2018-2019</a></li>
-            <li><a href="/index.php/academics/naac/naac-19-20">NAAC 2019-2020</a></li>
-            <li><a href="/index.php/academics/naac/naac-2020-2021">NAAC 2020-2021</a></li>
-            <li><a href="/index.php/academics/naac/naac-re-assessment">NAAC Re-Assessment</a></li>
-            <li><a href="/index.php/academics/naac/best-practices">Best Practices</a></li>
-            <li><a href="/index.php/academics/naac/institutional-distinctiveness">Institutional Distinctiveness</a></li>
-          </ol>
-        </li>
-        <li>
-          Research & Development
-          <ol>
-            <li><a href="/index.php/academics/research-development/rd-overview">Overview</a></li>
-            <li><a href="/index.php/academics/research-development/code-of-ethics">Code of Ethics</a></li>
-            <li><a href="/index.php/academics/research-development/publications">Publications, Patents, Funded Projects</a></li>
-            <li><a href="/index.php/academics/research-development/research-centre-details">Research Centre Details</a></li>
-            <li><a href="/index.php/academics/research-development/activities-under-r-d-cell">Activities under R&D Cell</a></li>
-          </ol>
-        </li>
-        <li>
-          IQAC-CRCE
-          <ol>
-            <li><a href="/index.php/academics/iqac-crce/about-iqac-crce">About IQAC-CRCE</a></li>
-            <li><a href="/index.php/academics/iqac-crce/composition">Composition</a></li>
-            <li><a href="/index.php/academics/iqac-crce/constitution">Constitution</a></li>
-            <li><a href="/index.php/academics/iqac-crce/roles-and-responsibilities">Roles and Responsibilities</a></li>
-            <li><a href="/index.php/academics/iqac-crce/minutes-of-meeting">Minutes of Meeting</a></li>
-            <li><a href="/index.php/academics/iqac-crce/activities">Activities</a></li>
-          </ol>
-        </li>
-        <li>
-          Library
-          <ol>
-            <li><a href="/index.php/academics/library/library-overview">Library Overview</a></li>
-            <li><a href="/index.php/academics/library/library-rules">Rules & Regulations</a></li>
-            <li>
-              E-Journals/E-Book
-              <ol>
-                <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank">IEEE Xplore</a></li>
-                <li><a href="https://asmedigitalcollection.asme.org/" target="_blank">ASME</a></li>
-                <li><a href="https://www.sciencedirect.com/" target="_blank">Science Direct</a></li>
-              </ol>
-            </li>
-            <li>
-              Printed Journals
-              <ol>
-                <li><a href="/index.php/academics/library/printed-journals/nijm">National & International Journals & Magazines</a></li>
-              </ol>
-            </li>
-            <li>
-              Services
-              <ol>
-                <li><a href="/index.php/academics/library/library-services/bbf">Book Bank Facility</a></li>
-                <li><a href="/index.php/academics/library/library-services/inter-libaray-resource">Inter Library Loan / Resource Sharing</a></li>
-                <li><a href="/index.php/academics/library/library-services/library-membership">Library Membership</a></li>
-              </ol>
-            </li>
-            <li><a href="https://ekumbh.aicte-india.org/index.php">AICTE recommended e-Books [Free Download]</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li>
-      Departments
-      <ol>
-        <li>
-          Computer Engineering
-          <ol>
-            <li><a href="/index.php/crce-department/comp-engg/about-compengg">About</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/from-hod-s-desk">From HOD's Desk</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/vision-mission-compengg">Vision and Mission</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/peo-po-compengg">PEOs, POs and PSOs</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/faculty-compengg">Faculty Members</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/support-staff-compengg">Supporting Staff</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/comp-engg-infra">Infrastructure</a></li>
-            <li>
-              Research
-              <ol>
-                <li><a href="/index.php/crce-department/comp-engg/comp-research/comps-publications">Publications</a></li>
-                <li><a href="/index.php/crce-department/comp-engg/comp-research/comps-projects">Projects</a></li>
-                <li><a href="/index.php/crce-department/comp-engg/comp-research/grants">Grants</a></li>
-                <li><a href="/index.php/crce-department/comp-engg/comp-research/final-year-projects">Final Year Projects</a></li>
-              </ol>
-            </li>
-            <li><a href="http://fragnel.edu.in/index.php/crce-downloads/category/81-comps">News Letter</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/innovative-teaching-and-learning-practices">Innovative Teaching and Learning Practices</a></li>
-            <li>
-              Placement, Higher Studies and Internship
-              <ol>
-                <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/placement-data">Placement Data</a></li>
-                <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/higher-studies-data">Higher Studies Data</a></li>
-                <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/internship-data">Internship Data</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/crce-department/comp-engg/pre-incubation-center">Pre-Incubation Center</a></li>
-            <li><a href="/index.php/crce-department/comp-engg/video-testimonials">Video Testimonials</a></li>
-            <li><a href="https://fragnel.edu.in/images/crce/department/comps/Department_of_Computer_Engineeringv2_modified.pdf" target="_blank">Student Achievements</a></li>
-          </ol>
-        </li>
-        <li>
-          Electronics and Computer Science
-          <ol>
-            <li><a href="/index.php/crce-department/elex-compsci/about-elex-compsci">About</a></li>
-            <li><a href="/index.php/crce-department/elex-compsci/hod-ecs">From HOD's Desk</a></li>
-            <li><a href="/index.php/crce-department/elex-compsci/vision-mission-elex-compsci">Vision and Mission</a></li>
-            <li><a href="/index.php/crce-department/elex-compsci/peo-po-elex-compsci">PEOs, POs and PSOs</a></li>
-            <li>
-              Faculty and Staff
-              <ol>
-                <li><a href="/index.php/crce-department/elex-compsci/our-people/teaching-faculty">Teaching Faculty</a></li>
-                <li><a href="/index.php/crce-department/elex-compsci/our-people/non-teaching-staff">Non-Teaching Staff</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/crce-department/elex-compsci/ecs-infra">Infrastructure</a></li>
-            <li><a href="/index.php/crce-department/elex-compsci/innovative-teaching-learning">Innovative Teaching Learning</a></li>
-            <li>
-              Placement Higher Studies and Internship
-              <ol>
-                <li><a href="/index.php/crce-department/elex-compsci/placement/placements">Placements Statistics</a></li>
-                <li><a href="https://frcrce.ac.in/images/2025/student_placement_1.pdf">List of Students Placed</a></li>
-              </ol>
-            </li>
-            <li><a href="https://frcrce.ac.in/images/2025/students_list_1.pdf">List of Students</a></li>
-            <li>
-              Students
-              <ol>
-                <li><a href="/index.php/crce-department/elex-compsci/our-students/student-achievements">Student Achievements</a></li>
-                <li><a href="/index.php/crce-department/elex-compsci/our-students/video-testimonials">Video Testimonials</a></li>
-              </ol>
-            </li>
-            <li>
-              Research
-              <ol>
-                <li><a href="/index.php/crce-department/elex-compsci/ecs-research/ecs-publications">Publications</a></li>
-                <li><a href="https://frcrce.ac.in/images/2025/2/BE_PROJECT_LIST_Three_Years.pdf">Projects</a></li>
-              </ol>
-            </li>
-            <li><a href="http://frcrce.ac.in/index.php/crce-downloads/category/84-ecs">Newsletter</a></li>
-            <li>
-              SPHERE Initiative
-              <ol>
-                <li><a href="https://frcrce.ac.in/images/crce/department/ecs/Report_SPHERE_2021-2022.pdf">2021-22</a></li>
-              </ol>
-            </li>
-          </ol>
-        </li>
-        <li>
-          Mechanical Engineering
-          <ol>
-            <li><a href="/index.php/crce-department/mechengg/about-mech">About</a></li>
-            <li><a href="/index.php/crce-department/mechengg/vision-mission-mech">Vision and Mission</a></li>
-            <li><a href="/index.php/crce-department/mechengg/peo-po-mech">PEOs, POs and PSOs</a></li>
-            <li><a href="/index.php/crce-department/mechengg/faculty-mech">Faculty Members</a></li>
-            <li><a href="/index.php/crce-department/mechengg/support-staff-mech">Supporting Staff</a></li>
-            <li><a href="https://fragnel.edu.in/images/crce/department/mech/Mechanical_Engineering_Dept_Placement_.pdf">Placement Data Mechanical Engineering</a></li>
-            <li><a href="https://fragnel.edu.in/images/crce/department/mech/List_of_Students_Mechanical_Engineering-2024-25_.pdf">List of Students</a></li>
-            <li><a href="/index.php/crce-department/mechengg/mechengg-infrastructure">Infrastructure</a></li>
-            <li><a href="/index.php/crce-department/mechengg/highlights">Highlights</a></li>
-            <li>
-              Research
-              <ol>
-                <li><a href="/index.php/crce-department/mechengg/research/publications">Publications</a></li>
-              </ol>
-            </li>
-            <li><a href="/index.php/crce-department/mechengg/innovative-teaching-learning-processes">Innovative Teaching-Learning Processes</a></li>
-          </ol>
-        </li>
-        <li>
-          Science & Humanities
-          <ol>
-            <li><a href="/index.php/crce-department/science-humanities/about-scihum">About</a></li>
-            <li><a href="/index.php/crce-department/science-humanities/po-scihum">Program Outcomes</a></li>
-            <li><a href="/index.php/crce-department/science-humanities/faculty-scihum">Faculty Members</a></li>
-            <li><a href="/index.php/crce-department/science-humanities/support-staff-scihum">Supporting Staff</a></li>
-            <li><a href="/index.php/crce-department/science-humanities/infra-scihum">Infrastructure</a></li>
-          </ol>
-        </li>
-        <li>
-          Computer Science & Engineering (AI & Data Science)
-          <ol>
-            <li><a href="/index.php/crce-department/ai-ds/about-ai-ds">About</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/vm-ai-ds">Vision & Mission</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/peos-pso">PEOs, PSO</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/faculty-ai-ds">Faculty Members</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/support-staff-ai-ds">Supporting Staff</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/ai-ds-infra">Infrastructure</a></li>
-            <li><a href="/index.php/crce-department/ai-ds/publications-ai-ds">Publications</a></li>
-            <li><a href="http://frcrce.ac.in/index.php/crce-downloads/category/120-a-i-ds-newsletter">News Letter</a></li>
-            <li><a href="http://frcrce.ac.in/images/crce/department/ai-ds/AI_DS_Achievements.pdf" target="_blank">Achievements</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li>
-      Students
-      <ol>
-        <li><a href="/index.php/students/events-new">Events</a></li>
-        <li>
-          Grievances
-          <ol>
-            <li><a href="/index.php/students/grievances/icc">Internal Complaints Committee (ICC)</a></li>
-            <li><a href="/index.php/students/grievances/ars">Anti-ragging squad</a></li>
-            <li><a href="/index.php/students/grievances/wdc">The Women Development Cell (WDC)</a></li>
-            <li><a href="https://frcrce.ac.in/images/2025/redressal_policy_2025.pdf" target="_blank">Student Grievance Redressal Committee</a></li>
-            <li><a href="/images/crce/pdfs/7thApril2021/Students_grievance_redressal_policy.pdf" target="_blank">Students' Grievance Redressal policy</a></li>
-            <li><a href="http://crce.fragnel.edu.in/Enq/grvSys.php" target="_blank">Online Grievance System</a></li>
-          </ol>
-        </li>
-        <li><a href="/index.php/students/image-gallery">Image Gallery</a></li>
-        <li>
-          Campus Placements
-          <ol>
-            <li><a href="/index.php/students/placements/campus-placement-overview">Overview</a></li>
-            <li><a href="/index.php/students/placements/our-recruiters">Our Recruiters</a></li>
-            <li><a href="/index.php/students/placements/placement-statistics">Placement Statistics</a></li>
-            <li><a href="http://www.frcrce.ac.in/images/2024/autonomous_curriculum/Rule_Book_training_internships_placement_2024_25.pdf">Internship Policy</a></li>
-            <li><a href="/index.php/students/placements/internship-opportunities">Internship Opportunities</a></li>
-            <li><a href="https://fragnel.edu.in/images/crce/Placed_Student_List.pdf">Student List</a></li>
-          </ol>
-        </li>
-        <li>
-          Forums
-          <ol>
-            <li><a href="/index.php/students/forums/nisp">NISP</a></li>
-            <li><a href="/index.php/students/forums/tedxcrce">TEDx-CRCE</a></li>
-            <li><a href="/index.php/students/forums/ecellcrce">eCell-CRCE</a></li>
-            <li><a href="/index.php/students/forums/ieeecrce">IEEE-CRCE</a></li>
-            <li><a href="/index.php/students/forums/csicrce">CSI-CRCE</a></li>
-            <li><a href="/index.php/students/forums/asmecrce">ASME-CRCE</a></li>
-            <li><a href="/index.php/students/forums/code-labs">Codelabs</a></li>
-            <li><a href="/index.php/students/forums/mozilla-club">Mozilla Campus Club-CRCE</a></li>
-            <li><a href="/index.php/students/forums/acmcrce">ACM-CRCE</a></li>
-            <li><a href="/index.php/students/forums/wiecrce">WIE-CRCE</a></li>
-            <li><a href="/index.php/students/forums/ieee-xcrce" target="_blank">IIIE-XCRCE</a></li>
-            <li><a href="/index.php/students/forums/nsscrce">NSS-CRCE</a></li>
-            <li><a href="/index.php/students/forums/rotaract-crce">Rotaract-CRCE</a></li>
-            <li><a href="/index.php/students/forums/game-developers-association">Game Developers Association</a></li>
-            <li><a href="/index.php/students/forums/gdsc-crce">GDSC CRCE</a></li>
-            <li><a href="https://fragnel.edu.in/images/2023/Unnat_Bharat_Abhiyan_2023.pdf">Unnat Bharat Abhiyan</a></li>
-          </ol>
-        </li>
-        <li>
-          Students Council
-          <ol>
-            <li><a href="http://fragnel.edu.in/index.php/crce-downloads/category/137-2022">Fragmag 2022</a></li>
-            <li><a href="/index.php/students/students-council/fragmag-2021">Fragmag 2021</a></li>
-            <li><a href="/images/2024/StucoPresentation.pdf">Students Council Presentation A.Y 2024-25</a></li>
-            <li><a href="https://drive.google.com/file/d/1WKNz2P2732QbALOLMje83LnithfkW06G/view?usp=sharing" target="_blank">FragMag 2023</a></li>
-            <li><a href="/images/2025/Students_Council_202526.pdf" target="_blank">Student Council A.Y. 2025-2026</a></li>
-            <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/170-2025">FragMag 2025</a></li>
-          </ol>
-        </li>
-        <li><a href="https://alumni.frcrce.ac.in/" target="_blank">Alumni</a></li>
-        <li>
-          Project Groups
-          <ol>
-            <li><a href="/index.php/students/project-groups/team-abadha" target="_blank">Team Abadha</a></li>
-            <li><a href="https://linktr.ee/TeamVaayushastra" target="_blank">Team Vaayushastra</a></li>
-            <li><a href="https://mavericksuas.github.io/" target="_blank">Marvericks</a></li>
-            <li><a href="/index.php/students/project-groups/team-robocon" target="_blank">Team Robocon</a></li>
-            <li><a href="https://projectcellcrce2021.web.app/">Project Cell</a></li>
-            <li><a href="/index.php/students/project-groups/team-cfr">Team CFR</a></li>
-            <li><a href="/index.php/students/project-groups/hawk-i-crce">HAWK-i CRCE</a></li>
-          </ol>
-        </li>
-        <li><a href="https://cep2024-25.netlify.app/">Community Engagement Projects</a></li>
-        <li><a href="https://iks-crce.vercel.app" target="_blank">Indian Knowledge System @CRCE</a></li>
-        <li><a href="https://jesh12347.github.io/LLC/">Mentoring of School Children</a></li>
-       <li><a href="file:///index.php/students/crce-notices"></a>Notices</li>
-       <li><a href="file:///c%3A/Users/luker/Downloads/LR/PCell_Sessions/index%20page/index.html#">Students Information</a>
-             <ol>
-                <li><a href="http://granth.fragnel.edu.in:5186/pinfo/index.php">Students Data Bank</a></li>
-                <li><a href="file:///index.php/students/student-info/phe">Progression to Higher Education</a></li>
-                <li><a href="file:///index.php/students/student-info/scholarships">Scholarships Schemes</a></li> 
-                <li><a href="file:///index.php/students/student-info/activities">Extension Activities & Awards</a></li>
-                <li><a href="file:///index.php/students/student-info/student-s-handbook-essentials-of-ethics">Student's Handbook-Essentials of Ethics</a></li>
+      <li><a href="/index.php/about-us/about-crce">About CRCE</a></li>
+      <li><a href="/index.php/about-us/director">From Director's Desk</a></li>
+      <li><a href="/index.php/about-us/drssr">I/C Principal - Dr. Sapna Prabhu</a></li>
+      <li><a href="/index.php/about-us/vision-mission">Vision and Mission</a></li>
+      <li>
+        Administration
+        <ol>
+          <li><a href="/index.php/about-us/administration/trustees">Trustees</a></li>
+          <li><a href="/index.php/about-us/administration/governance">Governance</a></li>
+          <li>
+            Governing Council
+            <ol>
+              <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Members_2025.pdf" target="_blank">Composition of Governing Council</a></li>
+              <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_13May2023.pdf" target="_blank">Minutes of Meeting 2022-2023</a></li>
+              <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_6April2024.pdf" target="_blank">Minutes of Meeting 2023-2024</a></li>
+              <li><a href="https://fragnel.edu.in/images/crce/docs/GC_Minutes_4April2025.pdf" target="_blank">Minutes of Meeting 2024-2025</a></li>
             </ol>
-        </li>
-        <li><a href="file:///c%3A/Users/luker/Downloads/LR/PCell_Sessions/index%20page/index.html#">Admission</a>
-              <ol>
-                <li><a href="http://frcrce.ac.in/index.php?view=page&id=497">Under Graduate</a></li>
-                <li><a href="file:///index.php/admission/post-graduate">Post Graduate</a></li>
-                <li><a href="file:///index.php/admission/phd">Ph.D</a></li>
-             </ol>
-        </li>
-        <li><a href="https://pay.fragnel.edu.in/CRCE/initPay.php">Online Payment</a></li>
-  </ol>
-  </nav>
+          </li>
+          <li><a href="/index.php/about-us/administration/local-management-council">Local Management Council</a></li>
+          <li><a href="/index.php/about-us/administration/college-development-committee">College Development Committee</a></li>
+          <li><a href="/index.php/about-us/administration/academic-cell">Academic Cell</a></li>
+          <li><a href="/images/2023/Strategic_Instt_Dev_Plan.pdf">Strategic Development Plan</a></li>
+          <li><a href="https://fragnel.edu.in/images/crce/Service_Rules.pdf">Service Rules</a></li>
+          <li><a href="/media/attachments/2024/04/25/revised_committee_1may2024.pdf" target="_blank">Staff Incharges</a></li>
+          <li><a href="https://frcrce.ac.in/images/2023/Revised_IRG_Policy_wef_2023.pdf">IRG Policy</a></li>
+        </ol>
+      </li>
+      <li>
+        General Information
+        <ol>
+          <li>
+            AICTE Approvals
+            <ol>
+              <li><a href="/images/2025/EOA_Report_2025-2026.pdf">Extension of Approval Letter 2025-26</a></li>
+              <li><a href="/images/2024/AICTE_Approvals2425.pdf" target="_blank">LOA and Subsequent EOAs</a></li>
+            </ol>
+          </li>
+          <li><a href="/index.php/about-us/general-info/corevalues">Core Values</a></li>
+          <li><a href="/index.php/about-us/general-info/code-of-conduct">Code of Conduct</a></li>
+          <li><a href="/index.php/about-us/general-info/telephone-directory">Telephone Directory</a></li>
+          <li><a href="/index.php/about-us/general-info/common-infra">Common Infrastructure</a></li>
+        </ol>
+      </li>
+      <li><a href="/index.php/about-us/mandatory-disclosure">Mandatory Disclosure</a></li>
+      <li><a href="/index.php/about-us/contact-us">Contact Us</a></li>
+    </ol>
+  
+  <!-- Academics -->
+    <h3>Academics</h3>
+    <ol>
+      <li>
+        Autonomous Curriculum
+        <ol>
+          <li><a href="/index.php/academics/autonomous-curriculum/rules-and-policies">Rules and Policies</a></li>
+          <li><a href="/index.php/academics/autonomous-curriculum/syllabus">Syllabus</a></li>
+        </ol>
+      </li>
+      <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/69-academic-calendar">Academic/Holiday Calendar</a></li>
+      <li>
+        Outreach Programmes
+        <ol>
+          <li><a href="/index.php/academics/outreach-and-mou-s/outreach-programmes">IIIRS-ISRO</a></li>
+        </ol>
+      </li>
+      <li><a href="/index.php/academics/list-of-mou-s">List of MOU's</a></li>
+      <li>
+        Examination
+        <ol>
+          <li><a href="/index.php/academics/examination/about-exam">About</a></li>
+          <li><a href="/index.php/academics/examination/exam-staff">Staff</a></li>
+          <li><a href="/index.php/academics/examination/exam-process">Examination Process</a></li>
+        </ol>
+      </li>
+      <li>
+        Teaching Learning Process
+        <ol>
+          <li><a href="/index.php/academics/tlp/tls">Teaching Learning Process</a></li>
+          <li><a href="/index.php/academics/tlp/lesson-plan">Lesson Plan</a></li>
+          <li><a href="/index.php/academics/tlp/syllabus">Syllabus</a></li>
+        </ol>
+      </li>
+      <li>
+        NAAC
+        <ol>
+          <li><a href="https://frcrce.ac.in/images/2023/NAAC_Certificate_2023.pdf">Certificate of Accreditation</a></li>
+          <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/159-aqar-2023-24">AQAR 2023-24</a></li>
+          <li>
+            AQAR 2022-23
+            <ol>
+              <li><a href="https://frcrce.ac.in/images/2023/AQAR_2022-23-approved.pdf">AQAR 2022-23 - Approved</a></li>
+              <li><a href="https://frcrce.ac.in/images/2023/ssr_22_23.pdf">SSR 2022-23</a></li>
+              <li><a href="/index.php/academics/naac/aqar-2022-23/academic-calendar">Academic Calendar</a></li>
+            </ol>
+          </li>
+          <li><a href="/index.php/academics/naac/naac-2019">NAAC 2018-2019</a></li>
+          <li><a href="/index.php/academics/naac/naac-19-20">NAAC 2019-2020</a></li>
+          <li><a href="/index.php/academics/naac/naac-2020-2021">NAAC 2020-2021</a></li>
+          <li><a href="/index.php/academics/naac/naac-re-assessment">NAAC Re-Assessment</a></li>
+          <li><a href="/index.php/academics/naac/best-practices">Best Practices</a></li>
+          <li><a href="/index.php/academics/naac/institutional-distinctiveness">Institutional Distinctiveness</a></li>
+        </ol>
+      </li>
+      <li>
+        Research & Development
+        <ol>
+          <li><a href="/index.php/academics/research-development/rd-overview">Overview</a></li>
+          <li><a href="/index.php/academics/research-development/code-of-ethics">Code of Ethics</a></li>
+          <li><a href="/index.php/academics/research-development/publications">Publications, Patents, Funded Projects</a></li>
+          <li><a href="/index.php/academics/research-development/research-centre-details">Research Centre Details</a></li>
+          <li><a href="/index.php/academics/research-development/activities-under-r-d-cell">Activities under R&D Cell</a></li>
+        </ol>
+      </li>
+      <li>
+        IQAC-CRCE
+        <ol>
+          <li><a href="/index.php/academics/iqac-crce/about-iqac-crce">About IQAC-CRCE</a></li>
+          <li><a href="/index.php/academics/iqac-crce/composition">Composition</a></li>
+          <li><a href="/index.php/academics/iqac-crce/constitution">Constitution</a></li>
+          <li><a href="/index.php/academics/iqac-crce/roles-and-responsibilities">Roles and Responsibilities</a></li>
+          <li><a href="/index.php/academics/iqac-crce/minutes-of-meeting">Minutes of Meeting</a></li>
+          <li><a href="/index.php/academics/iqac-crce/activities">Activities</a></li>
+        </ol>
+      </li>
+      <li>
+        Library
+        <ol>
+          <li><a href="/index.php/academics/library/library-overview">Library Overview</a></li>
+          <li><a href="/index.php/academics/library/library-rules">Rules & Regulations</a></li>
+          <li>
+            E-Journals/E-Book
+            <ol>
+              <li><a href="https://ieeexplore.ieee.org/Xplore/home.jsp" target="_blank">IEEE Xplore</a></li>
+              <li><a href="https://asmedigitalcollection.asme.org/" target="_blank">ASME</a></li>
+              <li><a href="https://www.sciencedirect.com/" target="_blank">Science Direct</a></li>
+            </ol>
+          </li>
+          <li>
+            Printed Journals
+            <ol>
+              <li><a href="/index.php/academics/library/printed-journals/nijm">National & International Journals & Magazines</a></li>
+            </ol>
+          </li>
+          <li>
+            Services
+            <ol>
+              <li><a href="/index.php/academics/library/library-services/bbf">Book Bank Facility</a></li>
+              <li><a href="/index.php/academics/library/library-services/inter-libaray-resource">Inter Library Loan / Resource Sharing</a></li>
+              <li><a href="/index.php/academics/library/library-services/library-membership">Library Membership</a></li>
+            </ol>
+          </li>
+          <li><a href="https://ekumbh.aicte-india.org/index.php">AICTE recommended e-Books [Free Download]</a></li>
+        </ol>
+      </li>
+    </ol>
+  
+  <!-- Departments  -->
+    <h3>Departments</h3>
+    <ol>
+      <li>
+        Computer Engineering
+        <ol>
+          <li><a href="/index.php/crce-department/comp-engg/about-compengg">About</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/from-hod-s-desk">From HOD's Desk</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/vision-mission-compengg">Vision and Mission</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/peo-po-compengg">PEOs, POs and PSOs</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/faculty-compengg">Faculty Members</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/support-staff-compengg">Supporting Staff</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/comp-engg-infra">Infrastructure</a></li>
+          <li>
+            Research
+            <ol>
+              <li><a href="/index.php/crce-department/comp-engg/comp-research/comps-publications">Publications</a></li>
+              <li><a href="/index.php/crce-department/comp-engg/comp-research/comps-projects">Projects</a></li>
+              <li><a href="/index.php/crce-department/comp-engg/comp-research/grants">Grants</a></li>
+              <li><a href="/index.php/crce-department/comp-engg/comp-research/final-year-projects">Final Year Projects</a></li>
+            </ol>
+          </li>
+          <li><a href="http://fragnel.edu.in/index.php/crce-downloads/category/81-comps">News Letter</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/innovative-teaching-and-learning-practices">Innovative Teaching and Learning Practices</a></li>
+          <li>
+            Placement, Higher Studies and Internship
+            <ol>
+              <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/placement-data">Placement Data</a></li>
+              <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/higher-studies-data">Higher Studies Data</a></li>
+              <li><a href="/index.php/crce-department/comp-engg/placement-higher-studies-and-internship/internship-data">Internship Data</a></li>
+            </ol>
+          </li>
+          <li><a href="/index.php/crce-department/comp-engg/pre-incubation-center">Pre-Incubation Center</a></li>
+          <li><a href="/index.php/crce-department/comp-engg/video-testimonials">Video Testimonials</a></li>
+          <li><a href="https://fragnel.edu.in/images/crce/department/comps/Department_of_Computer_Engineeringv2_modified.pdf" target="_blank">Student Achievements</a></li>
+        </ol>
+      </li>
+      <li>
+        Electronics and Computer Science
+        <ol>
+          <li><a href="/index.php/crce-department/elex-compsci/about-elex-compsci">About</a></li>
+          <li><a href="/index.php/crce-department/elex-compsci/hod-ecs">From HOD's Desk</a></li>
+          <li><a href="/index.php/crce-department/elex-compsci/vision-mission-elex-compsci">Vision and Mission</a></li>
+          <li><a href="/index.php/crce-department/elex-compsci/peo-po-elex-compsci">PEOs, POs and PSOs</a></li>
+          <li>
+            Faculty and Staff
+            <ol>
+              <li><a href="/index.php/crce-department/elex-compsci/our-people/teaching-faculty">Teaching Faculty</a></li>
+              <li><a href="/index.php/crce-department/elex-compsci/our-people/non-teaching-staff">Non-Teaching Staff</a></li>
+            </ol>
+          </li>
+          <li><a href="/index.php/crce-department/elex-compsci/ecs-infra">Infrastructure</a></li>
+          <li><a href="/index.php/crce-department/elex-compsci/innovative-teaching-learning">Innovative Teaching Learning</a></li>
+          <li>
+            Placement Higher Studies and Internship
+            <ol>
+              <li><a href="/index.php/crce-department/elex-compsci/placement/placements">Placements Statistics</a></li>
+              <li><a href="https://frcrce.ac.in/images/2025/student_placement_1.pdf">List of Students Placed</a></li>
+            </ol>
+          </li>
+          <li><a href="https://frcrce.ac.in/images/2025/students_list_1.pdf">List of Students</a></li>
+          <li>
+            Students
+            <ol>
+              <li><a href="/index.php/crce-department/elex-compsci/our-students/student-achievements">Student Achievements</a></li>
+              <li><a href="/index.php/crce-department/elex-compsci/our-students/video-testimonials">Video Testimonials</a></li>
+            </ol>
+          </li>
+          <li>
+            Research
+            <ol>
+              <li><a href="/index.php/crce-department/elex-compsci/ecs-research/ecs-publications">Publications</a></li>
+              <li><a href="https://frcrce.ac.in/images/2025/2/BE_PROJECT_LIST_Three_Years.pdf">Projects</a></li>
+            </ol>
+          </li>
+          <li><a href="http://frcrce.ac.in/index.php/crce-downloads/category/84-ecs">Newsletter</a></li>
+          <li>
+            SPHERE Initiative
+            <ol>
+              <li><a href="https://frcrce.ac.in/images/crce/department/ecs/Report_SPHERE_2021-2022.pdf">2021-22</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>
+        Mechanical Engineering
+        <ol>
+          <li><a href="/index.php/crce-department/mechengg/about-mech">About</a></li>
+          <li><a href="/index.php/crce-department/mechengg/vision-mission-mech">Vision and Mission</a></li>
+          <li><a href="/index.php/crce-department/mechengg/peo-po-mech">PEOs, POs and PSOs</a></li>
+          <li><a href="/index.php/crce-department/mechengg/faculty-mech">Faculty Members</a></li>
+          <li><a href="/index.php/crce-department/mechengg/support-staff-mech">Supporting Staff</a></li>
+          <li><a href="https://fragnel.edu.in/images/crce/department/mech/Mechanical_Engineering_Dept_Placement_.pdf">Placement Data Mechanical Engineering</a></li>
+          <li><a href="https://fragnel.edu.in/images/crce/department/mech/List_of_Students_Mechanical_Engineering-2024-25_.pdf">List of Students</a></li>
+          <li><a href="/index.php/crce-department/mechengg/mechengg-infrastructure">Infrastructure</a></li>
+          <li><a href="/index.php/crce-department/mechengg/highlights">Highlights</a></li>
+          <li>
+            Research
+            <ol>
+              <li><a href="/index.php/crce-department/mechengg/research/publications">Publications</a></li>
+            </ol>
+          </li>
+          <li><a href="/index.php/crce-department/mechengg/innovative-teaching-learning-processes">Innovative Teaching-Learning Processes</a></li>
+        </ol>
+      </li>
+      <li>
+        Science & Humanities
+        <ol>
+          <li><a href="/index.php/crce-department/science-humanities/about-scihum">About</a></li>
+          <li><a href="/index.php/crce-department/science-humanities/po-scihum">Program Outcomes</a></li>
+          <li><a href="/index.php/crce-department/science-humanities/faculty-scihum">Faculty Members</a></li>
+          <li><a href="/index.php/crce-department/science-humanities/support-staff-scihum">Supporting Staff</a></li>
+          <li><a href="/index.php/crce-department/science-humanities/infra-scihum">Infrastructure</a></li>
+        </ol>
+      </li>
+      <li>
+        Computer Science & Engineering (AI & Data Science)
+        <ol>
+          <li><a href="/index.php/crce-department/ai-ds/about-ai-ds">About</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/vm-ai-ds">Vision & Mission</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/peos-pso">PEOs, PSO</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/faculty-ai-ds">Faculty Members</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/support-staff-ai-ds">Supporting Staff</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/ai-ds-infra">Infrastructure</a></li>
+          <li><a href="/index.php/crce-department/ai-ds/publications-ai-ds">Publications</a></li>
+          <li><a href="http://frcrce.ac.in/index.php/crce-downloads/category/120-a-i-ds-newsletter">News Letter</a></li>
+          <li><a href="http://frcrce.ac.in/images/crce/department/ai-ds/AI_DS_Achievements.pdf" target="_blank">Achievements</a></li>
+        </ol>
+      </li>
+    </ol>
+  
+  <!-- Students -->
+    <h3>Students</h3>
+    <ol>
+      <li><a href="/index.php/students/events-new">Events</a></li>
+      <li>
+        Grievances
+        <ol>
+          <li><a href="/index.php/students/grievances/icc">Internal Complaints Committee (ICC)</a></li>
+          <li><a href="/index.php/students/grievances/ars">Anti-ragging squad</a></li>
+          <li><a href="/index.php/students/grievances/wdc">The Women Development Cell (WDC)</a></li>
+          <li><a href="https://frcrce.ac.in/images/2025/redressal_policy_2025.pdf" target="_blank">Student Grievance Redressal Committee</a></li>
+          <li><a href="/images/crce/pdfs/7thApril2021/Students_grievance_redressal_policy.pdf" target="_blank">Students' Grievance Redressal policy</a></li>
+          <li><a href="http://crce.fragnel.edu.in/Enq/grvSys.php" target="_blank">Online Grievance System</a></li>
+        </ol>
+      </li>
+      <li><a href="/index.php/students/image-gallery">Image Gallery</a></li>
+      <li>
+        Campus Placements
+        <ol>
+          <li><a href="/index.php/students/placements/campus-placement-overview">Overview</a></li>
+          <li><a href="/index.php/students/placements/our-recruiters">Our Recruiters</a></li>
+          <li><a href="/index.php/students/placements/placement-statistics">Placement Statistics</a></li>
+          <li><a href="http://www.frcrce.ac.in/images/2024/autonomous_curriculum/Rule_Book_training_internships_placement_2024_25.pdf">Internship Policy</a></li>
+          <li><a href="/index.php/students/placements/internship-opportunities">Internship Opportunities</a></li>
+          <li><a href="https://fragnel.edu.in/images/crce/Placed_Student_List.pdf">Student List</a></li>
+        </ol>
+      </li>
+      <li>
+        Forums
+        <ol>
+          <li><a href="/index.php/students/forums/nisp">NISP</a></li>
+          <li><a href="/index.php/students/forums/tedxcrce">TEDx-CRCE</a></li>
+          <li><a href="/index.php/students/forums/ecellcrce">eCell-CRCE</a></li>
+          <li><a href="/index.php/students/forums/ieeecrce">IEEE-CRCE</a></li>
+          <li><a href="/index.php/students/forums/csicrce">CSI-CRCE</a></li>
+          <li><a href="/index.php/students/forums/asmecrce">ASME-CRCE</a></li>
+          <li><a href="/index.php/students/forums/code-labs">Codelabs</a></li>
+          <li><a href="/index.php/students/forums/mozilla-club">Mozilla Campus Club-CRCE</a></li>
+          <li><a href="/index.php/students/forums/acmcrce">ACM-CRCE</a></li>
+          <li><a href="/index.php/students/forums/wiecrce">WIE-CRCE</a></li>
+          <li><a href="/index.php/students/forums/ieee-xcrce" target="_blank">IIIE-XCRCE</a></li>
+          <li><a href="/index.php/students/forums/nsscrce">NSS-CRCE</a></li>
+          <li><a href="/index.php/students/forums/rotaract-crce">Rotaract-CRCE</a></li>
+          <li><a href="/index.php/students/forums/game-developers-association">Game Developers Association</a></li>
+          <li><a href="/index.php/students/forums/gdsc-crce">GDSC CRCE</a></li>
+          <li><a href="https://fragnel.edu.in/images/2023/Unnat_Bharat_Abhiyan_2023.pdf">Unnat Bharat Abhiyan</a></li>
+        </ol>
+      </li>
+      <li>
+        Students Council
+        <ol>
+          <li><a href="http://fragnel.edu.in/index.php/crce-downloads/category/137-2022">Fragmag 2022</a></li>
+          <li><a href="/index.php/students/students-council/fragmag-2021">Fragmag 2021</a></li>
+          <li><a href="/images/2024/StucoPresentation.pdf">Students Council Presentation A.Y 2024-25</a></li>
+          <li><a href="https://drive.google.com/file/d/1WKNz2P2732QbALOLMje83LnithfkW06G/view?usp=sharing" target="_blank">FragMag 2023</a></li>
+          <li><a href="/images/2025/Students_Council_202526.pdf" target="_blank">Student Council A.Y. 2025-2026</a></li>
+          <li><a href="https://frcrce.ac.in/index.php/crce-downloads/category/170-2025">FragMag 2025</a></li>
+        </ol>
+      </li>
+      <li><a href="https://alumni.frcrce.ac.in/" target="_blank">Alumni</a></li>
+      <li>
+        Project Groups
+        <ol>
+          <li><a href="/index.php/students/project-groups/team-abadha" target="_blank">Team Abadha</a></li>
+          <li><a href="https://linktr.ee/TeamVaayushastra" target="_blank">Team Vaayushastra</a></li>
+          <li><a href="https://mavericksuas.github.io/" target="_blank">Marvericks</a></li>
+          <li><a href="/index.php/students/project-groups/team-robocon" target="_blank">Team Robocon</a></li>
+          <li><a href="https://projectcellcrce2021.web.app/">Project Cell</a></li>
+          <li><a href="/index.php/students/project-groups/team-cfr">Team CFR</a></li>
+          <li><a href="/index.php/students/project-groups/hawk-i-crce">HAWK-i CRCE</a></li>
+        </ol>
+      </li>
+      <li><a href="https://cep2024-25.netlify.app/">Community Engagement Projects</a></li>
+      <li><a href="https://iks-crce.vercel.app" target="_blank">Indian Knowledge System @CRCE</a></li>
+      <li><a href="https://jesh12347.github.io/LLC/" target="_blank">Mentoring of School Children</a></li>
+      <li><a href="/index.php/students/crce-notices">Notices</a></li>
+      <li>
+        Students Information
+        <ol>
+          <li><a href="http://granth.fragnel.edu.in:5186/pinfo/index.php" target="_blank">Students Data Bank</a></li>
+          <li><a href="/index.php/students/student-info/phe">Progression to Higher Education</a></li>
+          <li><a href="/index.php/students/student-info/scholarships">Scholarships Schemes</a></li>
+          <li><a href="/index.php/students/student-info/activities">Extension Activities & Awards</a></li>
+          <li><a href="/index.php/students/student-info/student-s-handbook-essentials-of-ethics">Student's Handbook-Essentials of Ethics</a></li>
+        </ol>
+      </li>
+    </ol>
+  
+  <!-- Admissions-->
+    <h3>Admissions</h3>
+    <ol>
+      <li><a href="http://frcrce.ac.in/index.php?view=page&id=497">Under Graduate</a></li>
+      <li><a href="/index.php/admission/post-graduate">Post Graduate</a></li>
+      <li><a href="/index.php/admission/phd">Ph.D</a></li>
+    </ol>
+  
+    <h3>Policies & Resources</h3>
+    <ol>
+      <li><a href="/index.php/about-us/mandatory-disclosure">Mandatory Disclosure</a></li>
+      <li><a href="/index.php/academics/research-development/code-of-ethics">Code of Ethics</a></li>
+      <li><a href="/index.php/about-us/general-info/code-of-conduct">Code of Conduct</a></li>
+      <li><a href="https://fragnel.edu.in/images/crce/Service_Rules.pdf">Service Rules</a></li>
+      <li><a href="https://frcrce.ac.in/images/2023/Revised_IRG_Policy_wef_2023.pdf">IRG Policy</a></li>
+    </ol>
+  
+  <!-- Contact & Social -->
+    <h3>Contact Information</h3>
+    <p>Fr. Agnel Ashram, Bandstand, Bandra (W), Mumbai 400 050, MH, IN</p>
+    <ul>
+      <li>Phone: +91 22-6711 4000</li>
+      <li>Fax: +91 22-6711 4100</li>
+      <li>Email: crce@frcrce.ac.in</li>
+    </ul>
+    
+    <h4>Training & Placement Officer</h4>
+    <ul>
+      <li>Phone: +91 22-6711 4045</li>
+      <li>Email: tpo@frcrce.ac.in</li>
+    </ul>
+    
+    <h4>Social Media</h4>
+    <p>Department of Electronics & Computer Science</p>
+    <ul>
+      <li><a href="https://www.facebook.com/ecs.frcrce" target="_blank">Facebook</a></li>
+      <li><a href="https://www.instagram.com/ecs.frcrce" target="_blank">Instagram</a></li>
+      <li><a href="https://www.twitter.com/ecs_frcrce" target="_blank">Twitter</a></li>
+      <li><a href="https://www.linkedin.com/company/ecs-frcrce" target="_blank">LinkedIn</a></li>
+    </ul>
+    
+    <p>Department of Computer Engineering</p>
+    <ul>
+      <li><a href="https://www.facebook.com/profile.php?id=100084210916660" target="_blank">Facebook</a></li>
+      <li><a href="https://www.instagram.com/crce_comps/" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/CrceComp" target="_blank">Twitter</a></li>
+      <li><a href="http://linkedin.com/in/crce-computer-engg-department/" target="_blank">LinkedIn</a></li>
+    </ul>
+    
+    <p>Department of Artificial Intelligence and Data Science</p>
+    <ol>
+      <li><a href="https://www.facebook.com/people/Artificial-Intelligence-Data-Science-at-Fr-CRCE/61561047077334/" target="_blank">Facebook</a></li>
+      <li><a href="https://www.instagram.com/aids.frcrce?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/dept-of-artificial-intelligence-and-data-science-a-03b828316/" target="_blank">LinkedIn</a></li>
+    </ol>
+  
+  <!-- Staff Services -->
+    <h3>Staff Services</h3>
+    <ul>
+      <li><a href="https://mail.google.com/a/fragnel.edu.in/" target="_blank">Agnel Mail Service</a></li>
+      <li><a href="http://samay.fragnel.edu.in:1234/timeo/" target="_blank">Biometric Attendance Service</a></li>
+      <li><a href="/index.php/other-services" target="_blank">Other Services</a></li>
+      <li><a href="/index.php/staff-login">Site Login</a></li>
+      <li><a href="http://fragnel.edu.in:7676/eSlot/index.php" target="_blank">Invigilation Slot Preference</a></li>
+    </ul>
+  
+  <!-- Library Quick Links -->
+    <h3>Library Quick Links</h3>
+    <ul>
+      <li><a href="https://www.theknowledgelibrary.in/">The Knowledge Library</a></li>
+      <li><a href="http://pustak.fragnel.edu.in:4040" target="_blank">Online Library Catalog (WebOPAC)</a></li>
+      <li><a href="http://epgp.inflibnet.ac.in/" target="_blank">PG Students Resource Hub - PG Pathsala</a></li>
+      <li><a href="http://www.rarebooksocietyofindia.org/" target="_blank">Rare Books Society of India</a></li>
+      <li><a href="http://www.ieee.org/ieeexplore" target="_blank">IEEE Xplore</a></li>
+      <li><a href="http://asmedigitalcollection.asme.org/" target="_blank">ASME</a></li>
+      <li><a href="https://ndl.iitkgp.ac.in/" target="_blank">National Digital Library</a></li>
+      <li><a href="http://frcrce.knimbus.com" target="_blank">Knimbus e-Library</a></li>
+      <li><a href="https://www.doabooks.org" target="_blank">Directory of Open Access of Books</a></li>
+      <li><a href="https://doaj.org">Directory of Open Access of Journals</a></li>
+      <li><a href="/questionpaper/ArchUE.php" target="_blank">Question Paper Archive - Before 2021</a></li>
+      <li><a href="/index.php/may-22-dec-22-and-honors-university-papers">May-22, Dec-22, May-23 and Honors University Papers</a></li>
+      <li><a href="https://ekumbh.aicte-india.org/index.php" target="_blank">AICTE recommended e-Books [Free Download]</a></li>
+    </ul>
+  
+  <!-- Additional Resources -->
+    <h3>Additional Resources</h3>
+    <ul>
+      <li><a href="/index.php/thinkering-lab">Tinkering Lab</a></li>
+      <li><a href="http://gyan.fragnel.edu.in:6644/moodle" target="_blank">Moodle Access</a></li>
+      <li><a href="http://granth.fragnel.edu.in:5186/pinfo/index.php" target="_blank">Students Portal</a></li>
+      <li><a href="/index.php/students/crce-notices">Student Notices</a></li>
+      <li><a href="/index.php/student-s-handbook-essentials-of-ethics">Student's handbook- essentials of ethics</a></li>
+      <li><a href="/index.php/crce-downloads">Downloads</a></li>
+      <li><a href="/index.php/audited-statements">Audited Statements</a></li>
+      <li><a href="https://iic-website.netlify.app/" target="_blank">Institutions Innovation Cell</a></li>
+      <li><a href="/index.php/preincubation-details">Preincubation Details</a></li>
+      <li><a href="/index.php/ipr-cell">IPR cell</a></li>
+      <li><a href="/index.php/green-practices">Green Practices</a></li>
+      <li><a href="/index.php/divyangajan">Facilities for Divyangajan</a></li>
+      <li><a href="https://ldap.fragnel.edu.in/manage/login.php" target="_blank">Change Network Password</a></li>
+      <li><a href="/index.php/agnel-news-letter">Agnel News Letter</a></li>
+      <li><a href="http://frcrce.ac.in/attachments/article/248/NEFTForm.pdf" target="_blank">Bank / NEFT Details</a></li>
+      <li><a href="http://crce.fragnel.edu.in/Enq/grvSys.php" target="_blank">Online Grievance / Suggestion / Feedback System</a></li>
+      <li><a href="/index.php/mou-collaboration-linkages">MoU / Collaboration/ Linkages</a></li>
+      <li><a href="/index.php/professional-counsellor-availability">Professional Counsellor availability</a></li>
+      <li><a href="https://pay.fragnel.edu.in/CRCE/initPay.php" target="_blank">Online Payment</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+
+    <h2>Fr. Conceicao Rodrigues College of Engineering</h2>
+     <div class="hero-actions">
+      <a href="http://mail.google.com/a/fragnel.edu.in/" class="btn primary"> Agnel Staff E-mail
+      </a>
+      <a href="http://mail.crce.edu.in/webMail/" class="btn">Student Mail Service
+      </a>
+    </div>
+
+    <p class="hero-tagline">
+      An autonomous engineering institute affiliated to the University of Mumbai,
+      committed to academic excellence, research, and industry readiness.
+    </p>
+
+    <ul class="hero-highlights">
+      <li>Autonomous Institute</li>
+      <li>NAAC A Grade Accredited</li>
+      <li>NBA Accredited Programs</li>
+    </ul>
+
+   
+
+  </div>
+</section>
+
+
+<section class="home" id="home">
+  
+  <header class="section-header">
+    <h3>Welcome to CRCE</h3>
+    <p>
+      Empowering students through quality education, innovation,
+      and strong industry collaboration.
+    </p>
+  </header>
+
+  <div class="home-grid">
+
+    <article class="home-card">
+      <h4>Admissions</h4>
+      <p>
+        Undergraduate, postgraduate, and doctoral programs designed
+        to meet modern engineering and research demands.
+      </p>
+      <a href="/index.php/admission">Learn more →</a>
+    </article>
+
+    <article class="home-card">
+      <h4>Academics</h4>
+      <p>
+        Autonomous curriculum, outcome-based education, and
+        continuous academic reforms.
+      </p>
+      <a href="/index.php/academics">Explore academics →</a>
+    </article>
+
+    <article class="home-card">
+      <h4>Departments</h4>
+      <p>
+        Engineering departments with experienced faculty,
+        advanced laboratories, and active research groups.
+      </p>
+      <a href="/index.php/crce-department">View departments →</a>
+    </article>
+
+    <article class="home-card">
+      <h4>Placements & Careers</h4>
+      <p>
+        Strong placement support, internships, and higher
+        education guidance through the Training & Placement Cell.
+      </p>
+      <a href="/index.php/students/placements">Placement records →</a>
+    </article>
+
+    <article class="home-card">
+      <h4>Research & Innovation</h4>
+      <p>
+        Funded projects, publications, patents, and collaborations
+        through the R&D Cell.
+      </p>
+      <a href="/index.php/academics/research-development">
+        Research at CRCE →
+      </a>
+    </article>
+
+    <article class="home-card">
+      <h4>Student Life</h4>
+      <p>
+        Technical forums, clubs, cultural activities, sports,
+        and holistic student development.
+      </p>
+      <a href="/index.php/students/forums">Campus life →</a>
+    </article>
+
+  </div>
+</section>
+
+
 
 </body>
 </html>
