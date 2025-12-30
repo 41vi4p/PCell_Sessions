@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fr.CRCE — Engineering Excellence</title>
+  <link href="index_style.css" rel="stylesheet">
+  <link href="crceloginlogo.png" rel="icon" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta name="keywords" content="frcrce, fragnel, crce, Computer Engineering, Electronics &amp; Computer Science, Information Technology, Mechanical Engineering, Artificial Intelligence &amp; Data Sciences Courses"/>
+        <meta name="description" content="Fr. Conceição Rodrigues College of Engineering, is a private engineering college in Mumbai, India. Offering courses like Computer Engineering, Electronics &amp; Computer Science, Information Technology, Mechanical Engineering, Artificial Intelligence &amp; Data Sciences."/>
+        <meta name="generator" content="Joomla! - Open Source Content Management"/>
+</head>
+
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <div class="logo">CRCE</div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <h2 style="font-size: 3rem; margin-bottom: 2rem; color: white;">Explore</h2>
+    <div class="menu-grid">
+      <div class="menu-section">
+        <h3>About</h3>
+        <a href="/index.php/about-us/about-crce">About CRCE</a>
+        <a href="/index.php/about-us/director">Director's Desk</a>
+        <a href="/index.php/about-us/vision-mission">Vision & Mission</a>
+        <a href="/index.php/about-us/mandatory-disclosure">Mandatory Disclosure</a>
+      </div>
+      <div class="menu-section">
+        <h3>Academics</h3>
+        <a href="/index.php/academics/autonomous-curriculum/syllabus">Syllabus</a>
+        <a href="/index.php/academics/examination/about-exam">Examination</a>
+        <a href="/index.php/academics/library/library-overview">Library</a>
+        <a href="/index.php/academics/research-development/rd-overview">Research & Development</a>
+      </div>
+      <div class="menu-section">
+        <h3>Departments</h3>
+        <a href="CE.html">Computer Engineering</a>
+        <a href="ECS.html">Electronics & Computer Science</a>
+        <a href="Mech.html">Mechanical Engineering</a>
+        <a href="CSE.html">Computer Science Engineering</a>
+      </div>
+      <div class="menu-section">
+        <h3>Students</h3>
+        <a href="/index.php/students/placements/campus-placement-overview">Placements</a>
+        <a href="Council.html">Forums & Councils</a>
+        <a href="/index.php/students/events-new">Events</a>
+        <a href="https://alumni.frcrce.ac.in/">Alumni</a>
+        <a href="StudentDatabase.html">Student Database</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="parallax-layer">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1>FR. CONCEICAO<br>RODRIGUES<br>COLLEGE</h1>
+      <p class="hero-subtitle">Engineering excellence through innovation, research, and industry collaboration</p>
+      <div class="badges">
+        <div class="badge">Autonomous</div>
+        <div class="badge">NAAC A Grade</div>
+        <div class="badge">NBA Accredited</div>
+      </div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Admissions</h3>
+        <p>Undergraduate, postgraduate, and doctoral programs designed for modern engineering challenges.</p>
+        <a href="/index.php/admission">Apply Now</a>
+      </div>
+      <div class="card">
+        <h3>Academics</h3>
+        <p>Autonomous curriculum with outcome-based education and continuous academic excellence.</p>
+        <a href="/index.php/academics">Explore Programs</a>
+      </div>
+      <div class="card">
+        <h3>Research</h3>
+        <p>Cutting-edge research with funded projects, publications, and patent opportunities.</p>
+        <a href="/index.php/academics/research-development">Our Research</a>
+      </div>
+      <div class="card">
+        <h3>Placements</h3>
+        <p>Industry connections and career support through our dedicated placement cell.</p>
+        <a href="/index.php/students/placements">Placement Stats</a>
+      </div>
+      <div class="card">
+        <h3>Innovation</h3>
+        <p>Pre-incubation center, project groups, and entrepreneurship support for students.</p>
+        <a href="/index.php/preincubation-details">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Campus Life</h3>
+        <p>Technical forums, cultural activities, sports, and holistic student development.</p>
+        <a href="Council.html">Explore Councils </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick-actions">
+    <button class="action-btn" onclick="window.location.href='StaffEmail.html/'" title="Staff Email">Staff Email</button>
+    <button class="action-btn" onclick="window.location.href='StudentEmail.html'" title="Student Email">Student Email</button>
+    <button class="action-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">Top</button>
+  </div>
+
+  <script>
+    // Custom cursor
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top = mouseY + 'px';
+    });
+
+    function animateFollower() {
+      followerX += (mouseX - followerX) * 0.1;
+      followerY += (mouseY - followerY) * 0.1;
+      follower.style.left = followerX + 'px';
+      follower.style.top = followerY + 'px';
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      menuOverlay.classList.toggle('active');
+    });
+
+    // Parallax effect
+    document.addEventListener('mousemove', (e) => {
+      const shapes = document.querySelectorAll('.shape');
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+
+      shapes.forEach((shape, i) => {
+        const speed = (i + 1) * 20;
+        shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(50px)';
+      card.style.transition = 'all 0.6s ease';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fr.CRCE- Engineering College</title>
-  <link rel="icon" type="image/x-icon" href="crceloginlogo.png">
-  <style>
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -160,7 +152,8 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--light-blue) 0%, #ffffff 100%);
+      background: linear-gradient(135deg, rgba(227, 242, 253, 0.9) 0%, rgba(255,255,255,0.9) 100%), 
+                  url('crceBuilding.png') center/cover;
     }
 
     .hero-bg {
@@ -209,24 +202,29 @@
 
     .badges {
       display: flex;
-      gap: 1rem;
+      gap: 2rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 2rem;
     }
 
     .badge {
-      padding: 0.5rem 1.5rem;
-      border: 2px solid var(--primary);
-      font-size: 0.9rem;
+      padding: 0;
+      border: none;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      animation: pulse 2s ease infinite;
-      background: rgba(11, 60, 93, 0.05);
+      letter-spacing: 2px;
+      animation: none;
+      background: none;
+      color: var(--primary);
+      font-weight: 600;
+      position: relative;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    .badge::before {
+      content: '●';
+      margin-right: 0.5rem;
+      color: var(--accent);
     }
 
     .section {
@@ -381,16 +379,18 @@
     }
 
     .action-btn {
-      width: 60px;
-      height: 60px;
+      width: auto;
+      min-width: 120px;
+      height: 50px;
+      padding: 0 1.5rem;
       background: var(--primary);
       border: none;
-      border-radius: 50%;
+      border-radius: 25px;
       color: var(--bg);
-      font-weight: 900;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 1.2rem;
+      font-size: 0.85rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
@@ -407,177 +407,3 @@
       .menu-grid { grid-template-columns: 1fr; }
       .quick-actions { bottom: 1.5rem; right: 1.5rem; }
     }
-  </style>
-</head>
-<body>
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
-
-  <nav>
-    <div class="logo">CRCE</div>
-    <button class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <div class="menu-overlay" id="menuOverlay">
-    <h2 style="font-size: 3rem; margin-bottom: 2rem; color: white;">Explore</h2>
-    <div class="menu-grid">
-      <div class="menu-section">
-        <h3>About</h3>
-        <a href="/index.php/about-us/about-crce">About CRCE</a>
-        <a href="/index.php/about-us/director">Director's Desk</a>
-        <a href="/index.php/about-us/vision-mission">Vision & Mission</a>
-        <a href="/index.php/about-us/mandatory-disclosure">Mandatory Disclosure</a>
-      </div>
-      <div class="menu-section">
-        <h3>Academics</h3>
-        <a href="/index.php/academics/autonomous-curriculum/syllabus">Syllabus</a>
-        <a href="/index.php/academics/examination/about-exam">Examination</a>
-        <a href="/index.php/academics/library/library-overview">Library</a>
-        <a href="/index.php/academics/research-development/rd-overview">Research & Development</a>
-      </div>
-      <div class="menu-section">
-        <h3>Departments</h3>
-        <a href="/index.php/crce-department/comp-engg/about-compengg">Computer Engineering</a>
-        <a href="/index.php/crce-department/elex-compsci/about-elex-compsci">Electronics & CS</a>
-        <a href="/index.php/crce-department/mechengg/about-mech">Mechanical Engineering</a>
-        <a href="/index.php/crce-department/ai-ds/about-ai-ds">AI & Data Science</a>
-      </div>
-      <div class="menu-section">
-        <h3>Students</h3>
-        <a href="/index.php/students/placements/campus-placement-overview">Placements</a>
-        <a href="/index.php/students/forums/ieee-crce">Forums & Clubs</a>
-        <a href="/index.php/students/events-new">Events</a>
-        <a href="https://alumni.frcrce.ac.in/">Alumni</a>
-      </div>
-    </div>
-  </div>
-
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="parallax-layer">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-    </div>
-    <div class="hero-content">
-      <h1>FR. CONCEICAO<br>RODRIGUES<br>COLLEGE</h1>
-      <p class="hero-subtitle">Engineering excellence through innovation, research, and industry collaboration</p>
-      <div class="badges">
-        <div class="badge">Autonomous</div>
-        <div class="badge">NAAC A Grade</div>
-        <div class="badge">NBA Accredited</div>
-      </div>
-    </div>
-    <div class="scroll-indicator"></div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">What We Offer</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Admissions</h3>
-        <p>Undergraduate, postgraduate, and doctoral programs designed for modern engineering challenges.</p>
-        <a href="/index.php/admission">Apply Now</a>
-      </div>
-      <div class="card">
-        <h3>Academics</h3>
-        <p>Autonomous curriculum with outcome-based education and continuous academic excellence.</p>
-        <a href="/index.php/academics">Explore Programs</a>
-      </div>
-      <div class="card">
-        <h3>Research</h3>
-        <p>Cutting-edge research with funded projects, publications, and patent opportunities.</p>
-        <a href="/index.php/academics/research-development">Our Research</a>
-      </div>
-      <div class="card">
-        <h3>Placements</h3>
-        <p>Industry connections and career support through our dedicated placement cell.</p>
-        <a href="/index.php/students/placements">Placement Stats</a>
-      </div>
-      <div class="card">
-        <h3>Innovation</h3>
-        <p>Pre-incubation center, project groups, and entrepreneurship support for students.</p>
-        <a href="/index.php/preincubation-details">Learn More</a>
-      </div>
-      <div class="card">
-        <h3>Campus Life</h3>
-        <p>Technical forums, cultural activities, sports, and holistic student development.</p>
-        <a href="/index.php/students/forums">Explore Clubs</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="quick-actions">
-    <button class="action-btn" onclick="window.location.href='http://mail.google.com/a/fragnel.edu.in/'" title="Staff Email">📧</button>
-    <button class="action-btn" onclick="window.location.href='http://mail.crce.edu.in/webMail/'" title="Student Email">📨</button>
-    <button class="action-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
-  </div>
-
-  <script>
-    // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    const follower = document.querySelector('.cursor-follower');
-    
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursor.style.left = mouseX + 'px';
-      cursor.style.top = mouseY + 'px';
-    });
-
-    function animateFollower() {
-      followerX += (mouseX - followerX) * 0.1;
-      followerY += (mouseY - followerY) * 0.1;
-      follower.style.left = followerX + 'px';
-      follower.style.top = followerY + 'px';
-      requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-
-    // Menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    menuToggle.addEventListener('click', () => {
-      menuOverlay.classList.toggle('active');
-    });
-
-    // Parallax effect
-    document.addEventListener('mousemove', (e) => {
-      const shapes = document.querySelectorAll('.shape');
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-
-      shapes.forEach((shape, i) => {
-        const speed = (i + 1) * 20;
-        shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-      });
-    });
-
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(50px)';
-      card.style.transition = 'all 0.6s ease';
-      observer.observe(card);
-    });
-  </script>
-</body>
-</html>
