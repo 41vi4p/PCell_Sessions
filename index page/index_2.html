@@ -4,32 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fr. Conceicao Rodrigues College of Engineering</title>
-  <link href="index_style.css" rel="stylesheet ">
+  <link href="index_style.css" rel="stylesheet">
 </head>
-
-<script>
-  const nav = document.getElementById("sideNav");
-  const toggleBtn = document.getElementById("navToggle");
-
-  let lastScrollY = window.scrollY;
-
-  // Manual toggle
-  toggleBtn.addEventListener("click", () => {
-    nav.classList.toggle("nav-hidden");
-  });
-
-  // Auto-hide on scroll
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > lastScrollY) {
-      nav.classList.add("nav-hidden");   // scrolling down → hide
-    } else {
-      nav.classList.remove("nav-hidden"); // scrolling up → show
-    }
-    lastScrollY = window.scrollY;
-  });
-</script>
-
-
 
 <body>
 
@@ -522,23 +498,32 @@
       <li><a href="https://pay.fragnel.edu.in/CRCE/initPay.php" target="_blank">Online Payment</a></li>
     </ul>
 </nav>
-
+<main>
 <section class="hero" id="hero">
-  <div class="hero-content">
-
-    <h2>Fr. Conceicao Rodrigues College of Engineering</h2>
-     <div class="hero-actions">
-      <a href="http://mail.google.com/a/fragnel.edu.in/" class="btn primary"> Agnel Staff E-mail
+     <!-- Actions (grouped, intentional) -->
+    <div class="hero-actions">
+      <a href="http://mail.google.com/a/fragnel.edu.in/" class="btn primary">
+        Agnel Staff E-mail
       </a>
-      <a href="http://mail.crce.edu.in/webMail/" class="btn">Student Mail Service
+      <a href="http://mail.crce.edu.in/webMail/" class="btn">
+        Student Mail Service
       </a>
     </div>
 
+  <div class="hero-content">
+
+    <!-- Authority -->
+    <h2 class="hero-title">
+      Fr. Conceicao Rodrigues College of Engineering
+    </h2>
+
+    <!-- Value proposition -->
     <p class="hero-tagline">
-      An autonomous engineering institute affiliated to the University of Mumbai,
-      committed to academic excellence, research, and industry readiness.
+      Autonomous engineering education with strong industry linkage,
+      research focus, and student outcomes.
     </p>
 
+    <!-- Proof -->
     <ul class="hero-highlights">
       <li>Autonomous Institute</li>
       <li>NAAC A Grade Accredited</li>
@@ -546,9 +531,9 @@
     </ul>
 
    
-
   </div>
 </section>
+
 
 
 <section class="home" id="home">
@@ -621,8 +606,37 @@
 
   </div>
 </section>
+</main>
 
+<script>
+  const nav = document.getElementById("sideNav");
+  const toggleBtn = document.getElementById("navToggle");
 
+  let lastScrollY = window.scrollY;
+  let manualOverride = false;
+
+  toggleBtn.addEventListener("click", () => {
+    nav.classList.toggle("nav-hidden");
+    manualOverride = true;
+
+    setTimeout(() => manualOverride = false, 1200);
+  });
+
+  window.addEventListener("scroll", () => {
+    if (manualOverride) return;
+
+    if (window.scrollY > lastScrollY) {
+      nav.classList.add("nav-hidden");
+    } else {
+      nav.classList.remove("nav-hidden");
+    }
+
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
